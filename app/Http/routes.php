@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::get('login','AdminController@getLogin');
 Route::post('login','AdminController@postLogin');
-Route::get('test', function(){
-    return View('admin.category.list');
-});
+
+Route::get('logout','AdminController@getLogout');
+
+

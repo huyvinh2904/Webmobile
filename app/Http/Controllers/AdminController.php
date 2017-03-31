@@ -10,17 +10,27 @@ use App\Http\Requests;
 class AdminController extends Controller
 {
     public function getLogin(){
-    	return view('login');
+    	return view('admin.login');
 
     }
     public function postLogin(Request $request){
-    	if (Auth::attempt(['username'=>$request->email,'password'=>$request->password])) {
+
+    	if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])) {
 			echo "abcxyz";
 		}
 		else{
-			return redirect('login')->with('thongbao','Dang nhap khong thanh cong');
+			return redirect('admin.login')->with('thongbao','Dang nhap khong thanh cong');
 		}
 
 
     }
-}
+    public function getLogout(){
+        Auth::logout();
+
+        return redirect('admin.login');
+
+        
+
+    }
+    }
+
