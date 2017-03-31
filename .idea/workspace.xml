@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee4f7cd1-d586-4e80-bcf5-12d3b2be30f6" name="Default" comment="">
-<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/comment/add.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Client.php" afterPath="$PROJECT_DIR$/app/Client.php" />
-=======
->>>>>>> qjwhe
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
+    <list default="true" id="ee4f7cd1-d586-4e80-bcf5-12d3b2be30f6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,17 +23,14 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state relative-caret-position="446">
               <caret line="31" column="3" lean-forward="false" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
               <folding>
                 <element signature="e#8#393#0#PHP" expanded="true" />
               </folding>
-=======
             <state relative-caret-position="153">
               <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
->>>>>>> qjwhe
             </state>
           </provider>
         </entry>
@@ -414,21 +409,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490954354053</updated>
-<<<<<<< HEAD
       <workItem from="1490954359759" duration="5429000" />
       <workItem from="1490960076268" duration="504000" />
-=======
       <workItem from="1490954359759" duration="5216000" />
->>>>>>> qjwhe
+      <workItem from="1490954359759" duration="5363000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
     <option name="totallyTimeSpent" value="5933000" />
-=======
     <option name="totallyTimeSpent" value="5216000" />
->>>>>>> qjwhe
+    <option name="totallyTimeSpent" value="5363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1364" height="726" extended-state="0" />
@@ -643,17 +634,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="446">
           <caret line="31" column="3" lean-forward="false" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
           <folding>
             <element signature="e#8#393#0#PHP" expanded="true" />
           </folding>
-=======
         <state relative-caret-position="153">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
->>>>>>> qjwhe
         </state>
       </provider>
     </entry>
