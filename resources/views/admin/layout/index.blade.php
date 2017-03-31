@@ -33,9 +33,9 @@
 
     <!-- Navigation -->
     @include('admin.layout.header');
-    @include('admin.layout.menu');
+  
     <!-- Page Content -->
-@yield('content')
+     @yield('content')
 <!-- /#page-wrapper -->
 
 </div>

@@ -1,11 +1,12 @@
-@extends('admin.layout.index')
-@section('content')
-    <div id="page-wrapper">
+ @extends('admin.layout.index')
+  @section('content')
+
+<div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Thêm
-                            <small>Menu</small>
+                        <h1 class="page-header">Menu
+                            <small>{{$ItemEdit->name}}</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -25,20 +26,21 @@
                     </div>
 
                     @endif
-                        <form action="item/add" method="POST">
-                           <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                        <form action="item/edit/{{$ItemEdit->id}}" method="POST">
+                        <input type="hidden"  name="_token" value="{{csrf_token()}}">
+                           
                             <div class="form-group">
                                 <label>Menu</label>
-                                <input class="form-control" name="txtCateName" placeholder="Nhập tên Menu..." />
+                                <input class="form-control" name="txtCateName" placeholder="Please Enter Menu..." value="{{$ItemEdit->name}}" />
                             </div>
                             
-                            <button type="submit" class="btn btn-default">Thêm</button>
-                            <button type="reset" class="btn btn-default">Làm mới</button>
-                        </form>
+                            <button type="submit" class="btn btn-default">Edit</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
+                        <form>
                     </div>
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </div>
-@endsection
+        @endsection
