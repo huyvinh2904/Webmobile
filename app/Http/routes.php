@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,3 @@ Route::get('/', function () {
 });
 Route::get('login','AdminController@getLogin');
 Route::post('login','AdminController@postLogin');
-Route::get('abc',function(){
-	return view('user.master');
-
-});
