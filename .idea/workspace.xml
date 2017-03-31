@@ -410,20 +410,26 @@
       <option name="presentableId" value="Default" />
       <updated>1490954354053</updated>
       <workItem from="1490954359759" duration="5429000" />
+<<<<<<< HEAD
       <workItem from="1490960076268" duration="504000" />
       <workItem from="1490954359759" duration="5216000" />
       <workItem from="1490954359759" duration="5363000" />
+=======
+>>>>>>> idea file
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="5933000" />
     <option name="totallyTimeSpent" value="5216000" />
     <option name="totallyTimeSpent" value="5363000" />
+=======
+    <option name="totallyTimeSpent" value="5429000" />
+>>>>>>> idea file
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1364" height="726" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
