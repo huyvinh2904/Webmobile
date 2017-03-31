@@ -10,7 +10,7 @@ use App\Http\Requests;
 class AdminController extends Controller
 {
     public function getLogin(){
-    	return view('login');
+    	return view('admin.login');
 
     }
     public function postLogin(Request $request){
@@ -19,14 +19,14 @@ class AdminController extends Controller
 			echo "abcxyz";
 		}
 		else{
-			return redirect('login')->with('thongbao','Dang nhap khong thanh cong');
+			return redirect('admin.login')->with('thongbao','Dang nhap khong thanh cong');
 		}
 
 
     }
     public function getLogout(){
         Auth::logout();
-        return redirect('login');
+        return redirect('admin.login');
     }
     }
 
