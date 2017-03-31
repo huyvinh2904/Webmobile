@@ -49,11 +49,11 @@
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="text" autofocus>
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Mật Khẩu
-                                    " name="password" type="password" value="">
+                                    " name="password" type="password" value="" required>
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Đăng nhập</button>
                             </fieldset>
