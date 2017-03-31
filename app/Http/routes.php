@@ -16,6 +16,16 @@ Route::get('/', function () {
 });
 Route::get('login','AdminController@getLogin');
 Route::post('login','AdminController@postLogin');
-Route::get('test', function(){
-    return View('admin.category.list');
+Route::get('logout','AdminController@getLogout');
+
+
+Route::group(['prefix'=>'admin'],function (){
+    Route::group(['prefix'=>'comment'],function (){
+        Route::get('list','CommentController@getList');
+        Route::get('delete/{id}','CommentController@getDelete');
+    });
+
+    Route::group(['prefix'=>'client'],function(){
+        Route::get('list','ClientController@getList');
+    });
 });
