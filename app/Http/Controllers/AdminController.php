@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Http\Requests;
+
+class AdminController extends Controller
+{
+    public function getLogin(){
+    	return view('login');
+
+    }
+    public function postLogin(Request $request){
+    	if (Auth::attempt(['username'=>$request->email,'password'=>$request->password])) {
+			echo "abcxyz";
+		}
+		else{
+			return redirect('login')->with('thongbao','Dang nhap khong thanh cong');
+		}
+
+
+    }
+}
