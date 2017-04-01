@@ -44,4 +44,20 @@ Route::group(['prefix'=>'cate'],function(){
 	});
 /*End Route Category*/
 
+/*Route Product*/
+Route::group(['prefix'=>'product'],function(){
+		Route::get('list','ProductController@getList');
+		Route::get('add','ProductController@getAdd');
+		Route::get('edit/{id}','ProductController@getEdit');
+		Route::post('edit/{id}','ProductController@postEdit');
+		Route::get('del/{id}','ProductController@getDel');
+		Route::post('add','ProductController@postAdd');
+	});
+/*End Route Product*/
+/*Ajax*/
+Route::	group(['prefix'=>'ajax'],function(){
+		Route::get('cate/{idMenu}','AjaxController@getCategory');	
+	});
+/*End*/
+
 

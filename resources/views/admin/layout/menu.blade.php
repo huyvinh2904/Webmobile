@@ -43,10 +43,10 @@
                 <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Product</a>
+                        <a href="product/list">List Product</a>
                     </li>
                     <li>
-                        <a href="#">Add Product</a>
+                        <a href="product/add">Add Product</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
