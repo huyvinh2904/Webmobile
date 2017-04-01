@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Thêm
+                        <h1 class="page-header">Add
                             <small>Menu</small>
                         </h1>
                     </div>
@@ -32,8 +32,8 @@
                                 <input class="form-control" name="txtCateName" placeholder="Nhập tên Menu..." />
                             </div>
                             
-                            <button type="submit" class="btn btn-default">Thêm</button>
-                            <button type="reset" class="btn btn-default">Làm mới</button>
+                            <button type="submit" class="btn btn-default">Add</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
                         </form>
                     </div>
                 </div>

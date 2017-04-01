@@ -49,7 +49,7 @@
                                 <input class="form-control" name="txtCateName" placeholder="Please Enter Category..." value="{{$CateEdit->name}}" />
                             </div>
                             
-                            <button type="submit" class="btn btn-default"> Sửa</button>
+                            <button type="submit" class="btn btn-default"> Edit</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         <form>
                     </div>
