@@ -11,7 +11,7 @@ class ItemController extends Controller
 {
     public function getList(){
     	$Item = Item::all();
-    	return view('admin.item.list',['item'=>$Item]);
+    	return view('admin.item.list',['Item'=>$Item]);
     }
     public function getAdd(){
     	return view('admin.item.add');
@@ -41,7 +41,7 @@ class ItemController extends Controller
         
         $Item->name = $request->txtCateName;  
         $Item->save();
-        return redirect('item/list')->with('thongbao','Sua Thành Công!');
+        return redirect('admin/item/list')->with('thongbao','Sua Thành Công!');
 
     
         
@@ -63,13 +63,13 @@ class ItemController extends Controller
         $Item->name = $request->txtCateName;
        
         $Item->save();
-        return redirect('item/list')->with('thongbao','Thêm Thành Công!');
+        return redirect('admin/item/list')->with('thongbao','Thêm Thành Công!');
 
     }
     public function getDel($id){
         $Item= Item::find($id);
         $Item->delete();
-        return redirect('item/list')->with('thongbao','Xoa Thành Công!');
+        return redirect('admin/item/list')->with('thongbao','Xoa Thành Công!');
 
     }
 }

@@ -7,27 +7,21 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">Web-Mobie</a>
-
     </div>
-    <!-- /.navbar-header -->
-    <!-- admin/user/sua/{{Auth::user()->id}} -->
-
     <ul class="nav navbar-top-links navbar-right">
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
-            <ul class="dropdown-menu dropdown-user">
-            @if(Auth::User())
+            <ul class="dropdown-menu dropdown-user"> 
                 <li><a href="#"><i class="fa fa-user fa-fw"></i> {{Auth::User()->name}}</a>
                 </li>
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
                 <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                </li>
-                @endif
+                </li>       
             </ul>
             <!-- /.dropdown-user -->
         </li>

@@ -36,14 +36,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($item as $it)
+                    @foreach($Item as $it)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$it->id}}</td>
                                 <td>{{ $it->name}}</td> 
                                 <td>{!! \Carbon\Carbon::createFromTimeStamp(strtotime($it["created_at"]))->diffForHumans() !!}</td> 
                                 <td>{!! \Carbon\Carbon::createFromTimeStamp(strtotime($it["created_at"]))->diffForHumans() !!}</td> 
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="item/delete/{{$it->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="item/edit/{{$it->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/item/delete/{{$it->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/item/edit/{{$it->id}}">Edit</a></td>
                             </tr>
                             @endforeach
                     </tbody>
