@@ -14,10 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('login','AdminController@getLogin');
-Route::post('login','AdminController@postLogin');
 
-Route::get('logout','AdminController@getLogout');
 Route::get('test',function(){
 return view('admin.category.add');
 });
