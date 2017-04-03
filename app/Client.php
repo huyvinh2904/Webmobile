@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Client as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model

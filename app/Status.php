@@ -10,4 +10,4 @@ class Status extends Model
     public function getOrder(){
     	return $this->hasMany('App\Order','status','id');
     }
-}
+} 

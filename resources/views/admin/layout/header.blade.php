@@ -6,7 +6,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Admin</a>
+        <a class="navbar-brand" href="index.html">Web-Mobie</a>
+
     </div>
     <!-- /.navbar-header -->
     <!-- admin/user/sua/{{Auth::user()->id}} -->
@@ -18,15 +19,15 @@
                 <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                 @if(Auth::check())
-                        <li><i class="fa fa-user fa-fw"></i> {{Auth::user()->name}}
-                        </li>
-                        <li><a href=""><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                        @endif
+            @if(Auth::User())
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> {{Auth::User()->name}}</a>
+                </li>
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+                @endif
             </ul>
             <!-- /.dropdown-user -->
         </li>

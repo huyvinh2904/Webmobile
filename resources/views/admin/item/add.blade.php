@@ -1,44 +1,62 @@
+<!-- /.navbar-top-links -->
 @extends('admin.layout.index')
 @section('content')
-    <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Add
-                            <small>Menu</small>
-                        </h1>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                     </div>
-                    <!-- /.col-lg-12 -->
-                    <div class="col-lg-7" style="padding-bottom:120px">
-                    @if(count($errors)>0)
-                    <div class="alert alert-danger">
-                    @foreach($errors->all() as $err)
-                        
-                        {{$err}}<br>
-                        @endforeach
-                    </div>
-
-                    @endif
-                    @if(session('thongbao'))
-                    <div class="alert alert-success">
-                        {{session('thongbao')}}
-                    </div>
-
-                    @endif
-                        <form action="item/add" method="POST">
-                           <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                            <div class="form-group">
-                                <label>Menu</label>
-                                <input class="form-control" name="txtCateName" placeholder="Nhập tên Menu..." />
-                            </div>
-                            
-                            <button type="submit" class="btn btn-default">Add</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
+                    <!-- /input-group -->
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">List Category</a>
+                        </li>
+                        <li>
+                            <a href="#">Add Category</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">List Product</a>
+                        </li>
+                        <li>
+                            <a href="#">Add Product</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">List User</a>
+                        </li>
+                        <li>
+                            <a href="#">Add User</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+            </ul>
         </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
 @endsection
