@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table ="orders";
     public function getOrderItem(){
-    	return $this->hasMany('App\OrderItem','order','id');
+    	return $this->hasMany('App\OrderItem','order_id','id');
     }
     public function getStatus(){
     	return $this->belongsTo('App\Status','status','id');
