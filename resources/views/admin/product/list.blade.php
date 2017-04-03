@@ -60,8 +60,8 @@
                         </td>
                         <td>{{$tt->description}}</td>
                         <td>{!! \Carbon\Carbon::createFromTimeStamp(strtotime($tt["created"]))->diffForHumans() !!}</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="product/del/{{$tt->id}}" > Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="product/edit/{{$tt->id}}">Edit</a></td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/product/del/{{$tt->id}}" > Delete</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/product/edit/{{$tt->id}}">Edit</a></td>
                     </tr>
                     @endforeach
                     

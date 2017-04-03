@@ -26,7 +26,7 @@
                     </div>
 
                     @endif
-                        <form action="product/edit/{{$product->id}}" method="POST" enctype="multipart/form-data">
+                        <form action="admin/product/edit/{{$product->id}}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label>Menu</label>

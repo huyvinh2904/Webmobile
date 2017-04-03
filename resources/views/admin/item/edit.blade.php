@@ -26,7 +26,7 @@
                     </div>
 
                     @endif
-                        <form action="item/edit/{{$ItemEdit->id}}" method="POST">
+                        <form action="admin/item/edit/{{$ItemEdit->id}}" method="POST">
                         <input type="hidden"  name="_token" value="{{csrf_token()}}">
                            
                             <div class="form-group">

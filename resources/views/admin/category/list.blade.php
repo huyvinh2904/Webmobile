@@ -59,8 +59,8 @@
                         </td>
                         <td> {!! \Carbon\Carbon::createFromTimeStamp(strtotime($cate["created_at"]))->diffForHumans() !!}</td>
                         <td> {!! \Carbon\Carbon::createFromTimeStamp(strtotime($cate["updated_at"]))->diffForHumans() !!}</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="cate/del/{{$cate->id}}" > Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="cate/edit/{{$cate->id}}">Edit</a></td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/cate/del/{{$cate->id}}" > Delete</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/cate/edit/{{$cate->id}}">Edit</a></td>
                       
                         
                         

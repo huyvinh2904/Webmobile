@@ -27,7 +27,7 @@
                     </div>
 
                     @endif
-                        <form action="cate/edit/{{$CateEdit->id}}" method="POST">
+                        <form action="admin/cate/edit/{{$CateEdit->id}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label>Menu</label>

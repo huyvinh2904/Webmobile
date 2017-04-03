@@ -26,7 +26,7 @@
                     </div>
 
                     @endif
-                        <form action="cate/add" method="POST">
+                        <form action="admin/cate/add" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label>Thể Loại</label>
