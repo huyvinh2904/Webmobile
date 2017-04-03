@@ -74,6 +74,10 @@ Route::get('admin/logout','AdminController@getLogout');
 
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
+     
+
+
+
     Route::group(['prefix'=>'comment'],function (){
         Route::get('list','CommentController@getList');
         Route::get('delete/{id}','CommentController@getDelete');
