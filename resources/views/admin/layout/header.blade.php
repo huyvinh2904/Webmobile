@@ -7,8 +7,10 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">Web-Mobie</a>
+
     </div>
     <!-- /.navbar-header -->
+    <!-- admin/user/sua/{{Auth::user()->id}} -->
 
     <ul class="nav navbar-top-links navbar-right">
         <!-- /.dropdown -->
@@ -31,5 +33,6 @@
         </li>
         <!-- /.dropdown -->
     </ul>
+    @include('admin.layout.menu')
 
 </nav>
