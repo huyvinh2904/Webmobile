@@ -33,9 +33,9 @@
 
     <!-- Navigation -->
     @include('admin.layout.header');
-    @include('admin.layout.menu');
+  
     <!-- Page Content -->
-@yield('content')
+     @yield('content')
 <!-- /#page-wrapper -->
 
 </div>
@@ -52,6 +52,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="admin_asset/dist/js/sb-admin-2.js"></script>
+<script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js" ></script>
 
 <!-- DataTables JavaScript -->
 <script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>

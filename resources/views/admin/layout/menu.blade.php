@@ -15,13 +15,14 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Item<span class="fa arrow"></span></a>
+                <a href="item/list"><i class="fa fa-bar-chart-o fa-fw"></i> Item<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Item</a>
+                        <a href="item/list">List Item</a>
                     </li>
+                    
                     <li>
-                        <a href="#">Add Item</a>
+                        <a href="item/add">Add Item</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -30,10 +31,10 @@
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Category</a>
+                        <a href="cate/list">List Category</a>
                     </li>
                     <li>
-                        <a href="#">Add Category</a>
+                        <a href="cate/add">Add Category</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -42,10 +43,10 @@
                 <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Product</a>
+                        <a href="product/list">List Product</a>
                     </li>
                     <li>
-                        <a href="#">Add Product</a>
+                        <a href="product/add">Add Product</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
