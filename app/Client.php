@@ -11,7 +11,7 @@ class Client extends Model
     public function getOrder(){
     	return $this->hasMany('App\Order','client','id');
     }
-    public function getCourntry(){
+    public function getCountry(){
     	return $this->belongsTo('App\Country','country','id');
     }
     public function getComment(){

@@ -10,11 +10,19 @@
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
+                   @if(session('message'))
+                <div class="alert alert-success">
+                    {{session('message')}}
+                </div>
+                @endif
+                <form action="admin/comment/delete_many" method="post">
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
-                    <tr align="center">
-                        <th></th>
-                        <th>Client</th>
+                    <tr align="right">
+                        <th ><button type="submit" class="btn btn-danger"
+                         onclick="return confirm('delete all comments checked?')" >DEL</button></th>
+                        <th align="center">Client</th>
                         <th>Product</th>
                         <th>Content</th>
                         <th>Created at</th>
@@ -25,9 +33,12 @@
                     <tbody>
                     @foreach($comment as $cm)
                         <tr class="odd gradeX" align="center">
-                            <td>{{$cm->id}}</td>
+                            <td><input type="checkbox" name="comment_check[]" value="{{$cm->id}}"></td>
                             <td>{{$cm->getClient->email}}</td>
-                            <td>{{$cm->getProduct->name}}</td>
+                            <td>
+                            <p>{{$cm->getProduct->name}}</p>
+                             <img width="100px" src="admin_asset/catalogue/{{$cm->getProduct->image}}">
+                            </td>
                             <td>{{$cm->content}}</td>
                             <td>{{$cm->created_at}}</td>
                             <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return confirm('Sure?')"
@@ -37,6 +48,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                </form>
                 {{$comment->links()}}
             </div>
             <!-- /.row -->

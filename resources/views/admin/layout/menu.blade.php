@@ -54,47 +54,39 @@
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Order<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Order</a>
+                        <a href="admin/order/list">List Order</a>
                     </li>
-                    <li>
-                        <a href="#">Add Order</a>
-                    </li>
+                
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Order Item<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">List Order Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Add Order Item</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
+    
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Comment<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Commnet</a>
+                        <a href="admin/comment/list">List Commnet</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @if(Auth::User()->level==1)
             <li>
                 <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List User</a>
+                        <a href="admin/client/list">List Client</a>
                     </li>
                     <li>
-                        <a href="#">Add User</a>
+                        <a href="admin/user/add">Add new User</a>
+                    </li>
+                     <li>
+                        <a href="admin/user/list">List User</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @endif
         </ul>
     </div>
     <!-- /.sidebar-collapse -->
