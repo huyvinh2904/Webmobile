@@ -79,6 +79,18 @@ Route::	group(['prefix'=>'ajax'],function(){
 		Route::get('cate/{idMenu}','AjaxController@getCategory');	
 	});
 /*End*/
+
+
+Route::get('admin/login','AdminController@getLogin');
+Route::post('admin/login','AdminController@postLogin');
+
+Route::get('admin/logout','AdminController@getLogout');
+
+
+
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
+     
+
     Route::group(['prefix'=>'comment'],function (){
         Route::get('list','CommentController@getList');
         Route::get('delete/{id}','CommentController@getDelete');
@@ -117,4 +129,5 @@ Route::	group(['prefix'=>'ajax'],function(){
     });
 
 });
+
 Route::get('index', 'PageController@getIndex');
