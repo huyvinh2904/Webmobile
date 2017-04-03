@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $Cate->item =$request->theloai;
         
         $Cate->save();
-        return redirect('cate/list')->with('thongbao','Thêm Thành Công!');
+        return redirect('admin/cate/list')->with('thongbao','Thêm Thành Công!');
 
     }
 
@@ -72,7 +72,7 @@ public function getEdit($id){
         $Cate->name = $request->txtCateName;
         $Cate->item= $request->theloai1;
         $Cate->save();
-        return redirect('cate/edit/'.$id)->with('thongbao','Sua Thành Công!');
+        return redirect('admin/cate/edit/'.$id)->with('thongbao','Sua Thành Công!');
 
     
         
@@ -80,7 +80,7 @@ public function getEdit($id){
      public function getDel($id){
         $Cate = Category::find($id);
         $Cate->delete();
-        return redirect('cate/list')->with('thongbao','Xoa Thành Công!');
+        return redirect('admin/cate/list')->with('thongbao','Xoa Thành Công!');
 
     }
 }

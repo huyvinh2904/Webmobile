@@ -1,5 +1,3 @@
-<!-- /.navbar-top-links -->
-
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
@@ -18,11 +16,11 @@
                 <a href="item/list"><i class="fa fa-bar-chart-o fa-fw"></i> Item<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="item/list">List Item</a>
+                        <a href="admin/item/list">List Item</a>
                     </li>
                     
                     <li>
-                        <a href="item/add">Add Item</a>
+                        <a href="admin/item/add">Add Item</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -31,10 +29,10 @@
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="cate/list">List Category</a>
+                        <a href="admin/cate/list">List Category</a>
                     </li>
                     <li>
-                        <a href="cate/add">Add Category</a>
+                        <a href="admin/cate/add">Add Category</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -43,10 +41,10 @@
                 <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="product/list">List Product</a>
+                        <a href="admin/product/list">List Product</a>
                     </li>
                     <li>
-                        <a href="product/add">Add Product</a>
+                        <a href="admin/product/add">Add Product</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -92,4 +90,4 @@
     </div>
     <!-- /.sidebar-collapse -->
 </div>
-<!-- /.navbar-static-side -->
+<!-- /.navbar-static-side

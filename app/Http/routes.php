@@ -25,7 +25,24 @@ Route::get('test',function(){
 return view('admin.category.add');
 });
 
-/*Route Item*/
+
+
+
+
+
+Route::get('admin/login','AdminController@getLogin');
+Route::post('admin/login','AdminController@postLogin');
+
+Route::get('admin/logout','AdminController@getLogout');
+
+
+
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
+
+
+
+
+	/*Route Item*/
 Route::group(['prefix'=>'item'],function(){
 		Route::get('list','ItemController@getList');
 		Route::get('add','ItemController@getAdd');
@@ -64,8 +81,6 @@ Route::	group(['prefix'=>'ajax'],function(){
 /*End*/
 
 
-
-
 Route::get('admin/login','AdminController@getLogin');
 Route::post('admin/login','AdminController@postLogin');
 
@@ -75,8 +90,6 @@ Route::get('admin/logout','AdminController@getLogout');
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
      
-
-
 
     Route::group(['prefix'=>'comment'],function (){
         Route::get('list','CommentController@getList');

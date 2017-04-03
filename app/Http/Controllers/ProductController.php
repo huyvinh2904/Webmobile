@@ -60,7 +60,7 @@ class ProductController extends Controller
                 $file =$request->file('image');
                 $duoi =$file->getClientOriginalExtension();
                 if ($duoi !='png' && $duoi!= 'jpg') {
-                return redirect('product/add')->with('loi','Bạn chỉ được thêm ảnh có đuôi png, jpg');
+                return redirect('admin/product/add')->with('loi','Bạn chỉ được thêm ảnh có đuôi png, jpg');
 
     		}
                 $name           =$file->getClientOriginalName();
@@ -74,7 +74,7 @@ class ProductController extends Controller
     	}
     	
     	$product->save();
-    	return redirect('product/list')->with('thongbao','Sua thanh cong');
+    	return redirect('admin/product/list')->with('thongbao','Sua thanh cong');
 
     }
    
@@ -85,7 +85,7 @@ class ProductController extends Controller
     }
         
         $product->delete();
-        return redirect('product/list')->with('thongbao','Delete Susses!');
+        return redirect('admin/product/list')->with('thongbao','Delete Susses!');
 
     }
     public function getAdd(){
@@ -127,7 +127,7 @@ class ProductController extends Controller
     		$file =$request->file('image');
     		$duoi=$file->getClientOriginalExtension();
     		if ($duoi !='png' && $duoi!= 'jpg') {
-    			return redirect('product/add')->with('loi','Bạn chỉ được thêm ảnh có đuôi png, jpg');
+    			return redirect('admin/product/add')->with('loi','Bạn chỉ được thêm ảnh có đuôi png, jpg');
 
     		}
     		$name =$file->getClientOriginalName();
@@ -143,7 +143,7 @@ class ProductController extends Controller
 
     	}
     	$product->save();
-    	return redirect('product/list')->with('thongbao','Bạn đã thêm Product thành công!');
+    	return redirect('admin/product/list')->with('thongbao','Bạn đã thêm Product thành công!');
 
     }
 }

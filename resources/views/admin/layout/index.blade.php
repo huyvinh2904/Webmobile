@@ -67,12 +67,9 @@
            // "ordering": false,
            // "info":     false
         });
-
       
-
         
     });
-
 </script>
 @yield('script')
 </body>
