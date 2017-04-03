@@ -116,4 +116,5 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
     });
 
 });
+
 Route::get('index', 'PageController@getIndex');

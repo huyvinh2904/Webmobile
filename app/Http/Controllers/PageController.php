@@ -13,6 +13,7 @@ class PageController extends Controller
     *  call index View
     */
     public function getIndex(){
-    	return view('layout.index');
+    	return view('page.list_all');
+
     }
 }
