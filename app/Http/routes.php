@@ -25,22 +25,12 @@ Route::get('test',function(){
 return view('admin.category.add');
 });
 
-
-
-
-
-
-Route::get('admin/login','AdminController@getLogin');
-Route::post('admin/login','AdminController@postLogin');
-
-Route::get('admin/logout','AdminController@getLogout');
-
-
-
-
-
-
-
+Route::get('giothieu',function(){
+return view('page.gioithieu');
+});
+Route::get('lienhe',function(){
+return view('page.lienhe');
+});
 
 	
 /*Ajax*/
@@ -154,3 +144,11 @@ Route::group(['prefix'=>'product'],function(){
 });
 
 Route::get('index', 'PageController@getIndex');
+Route::get('/home', 'HomeController@index');
+Route::get('login','ClientController@showLoginForm');
+Route::post('login','ClientController@postLogin');
+Route::get('register','ClientController@showRegistrationForm');
+Route::post('register','ClientController@postRegister');
+Route::get('logout','ClientController@Logout');
+
+Route::get('index1', 'HomeController@getIndex1');

@@ -1,4 +1,4 @@
-            <div class="header-bottom">
+  <div class="header-bottom">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
@@ -321,12 +321,13 @@
                         </div>
                         <div class="col-md-9">
                             <ul class="menu clearfix visible-lg visible-md">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="list.html">List Page</a></li>
-                                <li><a href="grid.html">Grid Page</a></li>
-                                <li><a href="detail.html">Details Page</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-detail.html">Blog details</a></li>
+                                <li><a href="index.html">Trang chủ</a></li>
+                                <?php $item = DB::table('items')->get(); ?>
+                                 @foreach($item as $it)
+                                <li><a href="#">{{$it->name}}</a></li>     
+                                @endforeach
+                                <li><a href="giothieu">Giới thiệu</a></li>
+                                <li><a href="lienhe">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -385,4 +386,4 @@
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container -->
                 </nav>
-            </div><!-- /.header-bottom -->
+</div><!-- /.header-bottom -->
