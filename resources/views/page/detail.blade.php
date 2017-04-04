@@ -1,6 +1,7 @@
      
 @extends('layout.index')
 @section('content')
+@include('layout.menu');
        <div class="main">
             <div class="container">
                 <div class="row">
@@ -11,7 +12,7 @@
                                     <div class="product-img-box">
                                         <p class="product-image">
                                             <a href="images/products/1.jpg" class="cloud-zoom" id="ma-zoom1">
-                                                <img src="images/products/1.jpg" alt="Fusce aliquam" title="Fusce aliquam" />
+                                                <img src="admin_asset/catalogue/{{$product->image}}" />
                                             </a>
                                         </p>
                 
@@ -19,86 +20,47 @@
                                 </div>
                                 <div class="product-shop col-sm-7">
                                     <div class="product-name">
-                                        <h1>Fusce aliquam</h1>
+                                        <h1>{{$product->name}}</h1>
                                     </div>
                                     <div class="ratings">
                                         <div class="rating-box">
                                             <div style="width:67%" class="rating"></div>
                                         </div>
-                                        <span class="amount"><a href="#">1 Review(s)</a></span>
                                     </div>
                                     <div class="box-container2"> 
                                         <div class="price-box">
                                             <p class="special-price">
-                                                <span class="price-label">Special Price</span>
+                                                <span class="price-label">{{$product->price}}</span>
                                             <span id="product-price-1" class="price">$99.00</span>
                                             </p>
                                             <p class="old-price">
                                                 <span class="price-label">Regular Price:</span>
-                                                <span id="old-price-1" class="price">$170.00</span>
+                                                <span id="old-price-1" class="price">{{$product->price_sale_off}}</span>
                                             </p>
                                         </div>
                                     </div>
                                     <div class="short-description">
-                                        <div class="std">Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis.</div>
+                                        <div class="std">
+                                           {!! $product->description !!}
+                                        </div>
                                     </div>
                                     <p class="availability in-stock">Availability: <span>In stock</span></p>
                                     <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-md-2 col-sm-3 control-label">Size <em>*</em></label>
-                                            <div class="col-sm-7">
-                                                <select class="form-control">
-                                                    <option value="">-- Please Select --</option>
-                                                    <option value="2">L +$2.00</option>
-                                                    <option value="1">M +$1.00</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-2 col-sm-3 control-label">Color <em>*</em></label>
-                                            <div class="col-sm-7">
-                                                <select class="form-control">
-                                                    <option value="">-- Please Select --</option>
-                                                    <option value="4">black +$2.00</option>
-                                                    <option value="3">blue +$1.00</option>
-                                                    <option value="5">yellow +$1.00</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-2 col-sm-3 control-label">Quantity:</label>
                                             <div class="col-md-3 col-sm-5">
                                                 <div class="input-group qty">
                                                     <span class="input-group-btn">
-                                                        <button class="btn" type="button">-</button>
                                                     </span>
-                                                    <input type="text" class="form-control" value="3">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn" type="button">+</button>
-                                                    </span>
+                                                   <input type="number" name="quantity" min="1" max="5">
                                                 </div><!-- /input-group -->
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-danger btn-cart">Add to cart</button>
-                                        <button type="button" class="btn btn-default btn-wishlist">Add to wishlist</button>
-                                        <button type="button" class="btn btn-default btn-compare">Add to compare</button>
                                     </form>
                                 </div><!-- /.product-shop -->
                             </div>
-                            <div class="product-tab tab-custom">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#product-desc" data-toggle="tab">PRODUCT DESCRIPTION</a></li>
-                                    <li><a href="#product-review" data-toggle="tab">CUSTOMER REVIEW</a></li>
-                                    <li><a href="#product-tags" data-toggle="tab">PRODUCT TAGS</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="product-desc">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus
-                                    </div>
-                                    <div class="tab-pane" id="product-review">...</div>
-                                    <div class="tab-pane" id="product-tags">...</div>
-                                </div>
-                            </div><!-- /.product-tab -->
+                         
                         </div><!-- /.product-view -->
 
                     </div><!-- /.col-right -->
@@ -407,14 +369,7 @@
                                 </div>
                             </div><!-- /.owl-container -->
                         </div><!-- /.block - Special offer -->
-                        <div class="block block-list">
-                            <div class="block-title">
-                                <strong><span>Compare</span></strong>
-                            </div>
-                            <div class="block-content">
-                                <p class="empty">You have no items to compare.</p>
-                            </div>
-                        </div><!-- /.compare -->
+
 
                     </div><!-- /.col-left -->
                 </div>
