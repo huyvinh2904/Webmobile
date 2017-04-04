@@ -115,7 +115,15 @@
                                                 </div>
                                             </div>
                                             <div class="content-box">
-                                                <h2 class="product-name"><a href="#" title="Quisque in arcu">Quisque in arcu</a></h2>
+                                                <h2 class="
+
+
+
+
+
+
+
+                                                product-name"><a href="#" title="Quisque in arcu">Quisque in arcu</a></h2>
                                                 <div class="price-box">
                                                     <p class="special-price">
                                                         <span class="price-label">Special Price</span>

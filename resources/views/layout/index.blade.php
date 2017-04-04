@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="#">
-
+  <base href="{{asset('')}}">
     <title>Web Mobie</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/nivo-slider.css" rel="stylesheet">
