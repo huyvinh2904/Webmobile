@@ -25,12 +25,10 @@ Route::get('test',function(){
 return view('admin.category.add');
 });
 
-Route::get('giothieu',function(){
-return view('page.gioithieu');
-});
-Route::get('lienhe',function(){
-return view('page.lienhe');
-});
+
+Route::get('gioithieu','PageController@getGioithieu');
+
+Route::get('lienhe','PageController@getLienhe');
 
 	
 /*Ajax*/
