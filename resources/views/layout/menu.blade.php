@@ -2,7 +2,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+                            <a href="index" class="logo"><img src="images/logo.png" alt=""></a>
                         </div>
                         <div class="col-md-9">
                             <div class="support-client">
@@ -111,9 +111,10 @@
                         <div class="col-md-9">
                             <ul class="menu clearfix visible-lg visible-md">
                                 <li><a href="index">Home</a></li>
+                                <li><a href="gioithieu">Giới thiệu</a></li>
                                 <?php  $Item=DB::table('items')->get();  ?>
                                 @foreach($Item as $it1)
-                                <li><a href="gioithieu">{{$it1->name}}</a></li>                                
+                                <li><a href="#">{{$it1->name}}</a></li>                                
                                @endforeach
                                 <li><a href="blog.html"></a></li>
                                 <li><a href="lienhe">Liên hệ</a></li>

@@ -72,6 +72,11 @@ class PageController extends Controller
 
     }
     
-
+     public function getLienhe(){
+     	return view('page.lienhe');
+     }
+     public function getGioithieu(){
+     	return view('page.gioithieu');
+     }
     
 }
