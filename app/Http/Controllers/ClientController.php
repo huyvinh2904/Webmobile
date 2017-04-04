@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use App\Client;
+use App\ClientLogin;
 class ClientController extends Controller
 {
     //
@@ -38,5 +40,28 @@ class ClientController extends Controller
           $client = Client::whereIn('id',$arr)->delete();
      	  	return redirect('admin/client/list')->with('message','Deleted');
      	
+     }
+     public function showLoginForm(){
+          return view('auth.login');
+
+     }
+     public function postLogin(Request $request){
+          if (Auth::guard('clients')->attempt(['email'=>$request->email,'password'=>$request->password])) {
+               echo "ok";
+          }
+          else{
+               return redirect('login')->with('thongbao','Dang nhap khong thanh cong');
+          }
+
+     }
+     public function Logout(){
+          Auth::guard('clients')->logout();
+          return redirect('index');
+     }
+     public function showRegistrationForm(){
+          return view('auth.register');
+     }
+     public function postRegister(){
+
      }
 }
