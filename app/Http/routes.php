@@ -129,3 +129,6 @@ Route::group(['prefix'=>'product'],function(){
 });
 
 Route::get('index', 'PageController@getIndex');
+Route::get('list-product/{id}','PageController@getListByCategory');
+Route::get('all-list/{id}','PageController@getListByItem');
+Route::get('detail/{id}','PageController@getDetail');
