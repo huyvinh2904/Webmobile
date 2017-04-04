@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use DB;
+
+use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+
+
 use Cookie;
 use App\Http\Requests;
 use App\Item;
 use App\Category;
 use App\Product;
+
 class PageController extends Controller
 {
     //
@@ -20,6 +28,10 @@ class PageController extends Controller
 	
      }
     public function getIndex(){
+
+    	
+    	
+
     	return view('page.trangchu');
 
     }
@@ -51,5 +63,9 @@ class PageController extends Controller
           var_dump($value);
         // return view('page.test_cookie');
         // echo "h";
+
     }
+    
+
+    
 }
