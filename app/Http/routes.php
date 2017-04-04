@@ -141,6 +141,11 @@ Route::group(['prefix'=>'product'],function(){
 });
 
 Route::get('index', 'PageController@getIndex');
+
+Route::get('list-product/{id}','PageController@getListByCategory');
+Route::get('all-list/{id}','PageController@getListByItem');
+Route::get('detail/{id}','PageController@getDetail');
+
 Route::get('/home', 'HomeController@index');
 Route::get('login','ClientController@showLoginForm');
 Route::post('login','ClientController@postLogin');
@@ -149,3 +154,4 @@ Route::post('register','ClientController@postRegister');
 Route::get('logout','ClientController@Logout');
 
 Route::get('index1', 'HomeController@getIndex1');
+
