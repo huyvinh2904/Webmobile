@@ -48,7 +48,6 @@ Route::get('admin/logout','AdminController@getLogout');
 
 
 
-/*End Route Product*/
 
   
   

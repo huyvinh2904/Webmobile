@@ -4,6 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+
+
+use Cookie;
+use App\Http\Requests;
+use App\Item;
+use App\Category;
+use App\Product;
+
+
 use DB;
 
 use App\Http\Requests;
@@ -15,6 +25,7 @@ use Cookie;
 use App\Item;
 use App\Category;
 use App\Product;
+
 
 class PageController extends Controller
 {
@@ -29,7 +40,10 @@ class PageController extends Controller
      }
     public function getIndex(){
 
-    	return view('page.trangchu');
+    	
+       return view('page.trangchu');
+
+
 
     }
 
