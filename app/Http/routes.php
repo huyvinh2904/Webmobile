@@ -47,10 +47,7 @@ Route::get('admin/logout','AdminController@getLogout');
 
 
 
-Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
-	/*Route Item*/
 
-/*End Route Product*/
 
   
   
