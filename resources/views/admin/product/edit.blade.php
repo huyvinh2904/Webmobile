@@ -66,7 +66,18 @@
                             <p><img width="100px" src="admin_asset/catalogue/{{$product->image}}" /></p>
                             <input type="file" name="image" class="form-control">
                                 
-                            </div>                          
+                            </div>  
+                            <div class="form-group">
+                                <label>Trạng Thái</label>
+                                <select class="form-control" name="ishot" id="ishot">
+                                   
+                                    <option value="1">Thường</option>
+                                    <option value="2">Bán Chạy</option>
+                                    <option value="4">Mới</option>
+                                    <option value="8">Hot</option>
+                                
+                                </select>
+                            </div>                                      
                             <button type="submit" class="btn btn-default"> Edit</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         <form>

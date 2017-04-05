@@ -1,6 +1,7 @@
      
 @extends('layout.index')
 @section('content')
+@include('layout.menu');
        <div class="main">
             <div class="container">
                 <div class="row">

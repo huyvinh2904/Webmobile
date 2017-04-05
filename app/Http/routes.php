@@ -26,8 +26,16 @@ return view('admin.category.add');
 });
 
 
+Route::get('gioithieu','PageController@getGioithieu');
 
+Route::get('lienhe','PageController@getLienhe');
 
+	
+/*Ajax*/
+Route::	group(['prefix'=>'ajax'],function(){
+		Route::get('cate/{idMenu}','AjaxController@getCategory');	
+	});
+/*End*/
 
 
 Route::get('admin/login','AdminController@getLogin');
@@ -39,10 +47,11 @@ Route::get('admin/logout','AdminController@getLogout');
 
 
 
-
-	/*Route Item*/
-
-/*End Route Product*/
+  
+  
+  
+  
+  
 /*Ajax*/
 Route::	group(['prefix'=>'ajax'],function(){
 		Route::get('cate/{idMenu}','AjaxController@getCategory');	
@@ -89,6 +98,7 @@ Route::group(['prefix'=>'product'],function(){
         Route::post('add','ProductController@postAdd');
     });
 
+
     Route::group(['prefix'=>'comment'],function (){
         Route::get('list','CommentController@getList');
         Route::get('delete/{id}','CommentController@getDelete');
@@ -128,7 +138,23 @@ Route::group(['prefix'=>'product'],function(){
 
 });
 
-Route::get('index', 'PageController@getIndex');
+Route::get('index', 'PageController@getIndex1');
+Route::get('myaccount', 'PageController@getAccount');
+
 Route::get('list-product/{id}','PageController@getListByCategory');
 Route::get('all-list/{id}','PageController@getListByItem');
 Route::get('detail/{id}','PageController@getDetail');
+
+
+
+Route::get('index1', 'HomeController@getIndex1');
+
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+Route::get('login','Auth\AuthController@getLogin');
+Route::post('login','Auth\AuthController@postLogin');
+Route::get('register','Auth\AuthController@getRegister');
+Route::post('register','Auth\AuthController@postRegister');
+Route::get('logout','PageController@getLogout');

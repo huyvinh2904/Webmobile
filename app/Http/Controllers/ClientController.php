@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use App\Client;
+use App\ClientLogin;
 class ClientController extends Controller
 {
     //
+    
+      
      public function getList(){
      	 $client =  Client::paginate(10);
          return View('admin.client.list',['client'=>$client]);
@@ -39,4 +43,5 @@ class ClientController extends Controller
      	  	return redirect('admin/client/list')->with('message','Deleted');
      	
      }
+    
 }
