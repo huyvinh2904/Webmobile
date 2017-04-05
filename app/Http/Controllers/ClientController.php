@@ -43,5 +43,38 @@ class ClientController extends Controller
      	  	return redirect('admin/client/list')->with('message','Deleted');
      	
      }
+
+     public function getDetail($id){
+          $client = Client::find($id);
+          return view ('admin.client.detail',['client'=>$client]);
+
+     }
+
+
+     public function showLoginForm(){
+          return view('auth.login');
+
+     }
+     public function postLogin(Request $request){
+          if (Auth::guard('clients')->attempt(['email'=>$request->email,'password'=>$request->password])) {
+               echo "ok";
+          }
+          else{
+               return redirect('login')->with('thongbao','Dang nhap khong thanh cong');
+          }
+
+     }
+     public function Logout(){
+          Auth::guard('clients')->logout();
+          return redirect('index');
+     }
+     public function showRegistrationForm(){
+          return view('auth.register');
+     }
+     public function postRegister(){
+
+     }
+
     
+
 }

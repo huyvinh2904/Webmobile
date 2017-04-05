@@ -53,17 +53,24 @@
                                         <span class="price">$45.00</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <div class="cart-listing">
-                                            <div class="media">
-                                                <div class="media-left"><a href="#"><img src="images/products/11.jpg" alt="" class="img-responsive"></a></div>
-                                                <div class="media-body">
-                                                    <button type="button" class="remove-cart-item" >&times;</button>
-                                                    <h4>Accumsan elit</h4>
-                                                    <div class="mini-cart-qty">Qty:2</div>
-                                                    <div class="mini-cart-price">$ 64.00</div>
-                                                </div>
-                                            </div>
+                                        <div class="cart-listing" id="cart-listing">
+                                            @if(session('listProduct'))
+                                     @foreach (session('listProduct') as $vl)
+                                    <div class="media">
+                                    <div class="media-left"><a href="#"><img src="admin_asset/catalogue/{{$vl->getProduct->image}}" alt="" class="img-responsive"></a></div>
+                                    <div class="media-body">
+                                    <button type="button" class="remove-cart-item">&times;</button>
+                                    <h4>{{$vl->getProduct->name}}</h4>
+                                    <div class="mini-cart-qty">{{$vl->qty}}</div>
+                                    <div class="mini-cart-price">{{$vl->price}}</div>
+                                    </div>
+                                    </div>
+                                    @endforeach
+                                      
+                                            @endif
                                         </div><!-- /.cart-listing -->
+
+
                                         <div class="mini-cart-subtotal">Total: <span class="price">$200.00</span></div>
                                         <div class="checkout-btn">
                                             <a href="#" class="btn btn-default btn-md fwb">CHECK OUT</a>

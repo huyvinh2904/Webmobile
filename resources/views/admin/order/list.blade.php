@@ -36,7 +36,7 @@
                     @foreach($order as $od)
                     <tr class="odd gradeX header" align="center">
                         <td> <input type="checkbox" name="order_check[]" value="{{$od->id}}"></td>
-                        <td>{{$od->getClient->email}}</td>
+                        <td><a href="admin/client/detail/{{$od->getClient->id}}">{{$od->getClient->email}}</a></td>
                         <td>{{$od->total}}</td>
                         <td>{{$od->created_at}}</td>
                         <td>{{$od->payment_status}}</td>
