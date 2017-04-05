@@ -138,18 +138,23 @@ Route::group(['prefix'=>'product'],function(){
 
 });
 
-Route::get('index', 'PageController@getIndex');
+Route::get('index', 'PageController@getIndex1');
+Route::get('myaccount', 'PageController@getAccount');
 
 Route::get('list-product/{id}','PageController@getListByCategory');
 Route::get('all-list/{id}','PageController@getListByItem');
 Route::get('detail/{id}','PageController@getDetail');
 
-Route::get('/home', 'HomeController@index');
-Route::get('login','ClientController@showLoginForm');
-Route::post('login','ClientController@postLogin');
-Route::get('register','ClientController@showRegistrationForm');
-Route::post('register','ClientController@postRegister');
-Route::get('logout','ClientController@Logout');
+
 
 Route::get('index1', 'HomeController@getIndex1');
 
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+Route::get('login','Auth\AuthController@getLogin');
+Route::post('login','Auth\AuthController@postLogin');
+Route::get('register','Auth\AuthController@getRegister');
+Route::post('register','Auth\AuthController@postRegister');
+Route::get('logout','PageController@getLogout');

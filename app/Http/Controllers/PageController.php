@@ -31,15 +31,25 @@ class PageController extends Controller
      function __construct(){
      	$item_share = Item::all();
      	view()->share('item_share',$item_share);
+         $this->middleware('guest',['except'=>'getLogout']);
 	
      }
-    public function getIndex(){
+     public function getLogout(){
+        Auth::guard('clients')->logout();
+        return redirect('login');
 
-    	
+     }
+    
+    public function getIndex1(){
+
+        
        return view('page.trangchu');
 
 
 
+    }
+    public function getAccount(){
+        echo "quan ly tai khoan";
     }
 
     public function getListByItem($id){
