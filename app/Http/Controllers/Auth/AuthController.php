@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\ClientLogin;
 use Validator;
+use DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -30,7 +33,7 @@ class AuthController extends Controller
 
      */
     
-    protected $redirectTo = '/';
+    protected $redirectTo = 'myaccount';
 
 
     /**
@@ -53,9 +56,66 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:user',
+            'email' => 'required|email|max:255|unique:clients',
             'password' => 'required|min:6|confirmed',
+            
         ]);
+    }
+
+
+
+public function getLogin(){
+    return view('auth.login');
+
+}
+ public function postLogin(Request $request)
+    {
+        $this->validateLogin($request);
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        $throttles = $this->isUsingThrottlesLoginsTrait();
+
+        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        $credentials = $this->getCredentials($request);
+
+        if (Auth::guard('clients')->attempt($credentials, $request->has('remember'))) {
+            return $this->handleUserWasAuthenticated($request, $throttles);
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        if ($throttles && ! $lockedOut) {
+            $this->incrementLoginAttempts($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+public function getRegister(){
+    $country = DB::table('countries')->get();
+    return view('auth.register',['country'=>$country]);
+    
+}
+public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        Auth::guard('clients')->login($this->create($request->all()));
+
+        return create($request->all());
     }
 
     /**
@@ -66,10 +126,11 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'first_name' => $data['name'],
+        return ClientLogin::create([
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            
         ]);
     }
 }

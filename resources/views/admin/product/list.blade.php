@@ -33,6 +33,7 @@
                          <th>Price sale off</th>
                          <th>Category</th>
                          <th>Views</th>
+                         <th>IsHot</th>
                          <th>Desciption</th>
                          <th>Created_at</th>
                          <th>Delete</th>
@@ -57,6 +58,18 @@
                         @endif  </td>
                         <td>
                           {{$tt->viewed}}
+                        </td>
+                        <td>
+                          
+                          @if($tt->ishot ==1)
+                          {{'Thường'}}
+                          @elseif($tt->ishot ==2)
+                          {{'Bán Chạy'}}
+                           @elseif($tt->ishot ==4)
+                           {{'Mới'}}
+                            @elseif($tt->ishot ==8)
+                            {{'Hot'}}
+                            @endif
                         </td>
                         <td>{{$tt->description}}</td>
                         <td>{!! \Carbon\Carbon::createFromTimeStamp(strtotime($tt["created"]))->diffForHumans() !!}</td>
