@@ -4,18 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use DB;
 
-use App\Http\Requests;
-use Illuminate\Support\Facades\Auth;
 
 
 use Cookie;
+
 use Session;
 use App\Item;
 use App\Category;
 use App\Product;
 use App\OrderItem;
+
+use App\Http\Requests;
+use App\Item;
+use App\Category;
+use App\Product;
+
+
+use DB;
+
+use Illuminate\Support\Facades\Auth;
+
+
+
+
+
+
 class PageController extends Controller
 {
     //
@@ -25,12 +39,25 @@ class PageController extends Controller
      function __construct(){
      	$item_share = Item::all();
      	view()->share('item_share',$item_share);
+         $this->middleware('guest',['except'=>'getLogout']);
 	
      }
-    public function getIndex(){
+     public function getLogout(){
+        Auth::guard('clients')->logout();
+        return redirect('login');
 
-    	return view('page.trangchu');
+     }
+    
+    public function getIndex1(){
 
+        
+       return view('page.trangchu');
+
+
+
+    }
+    public function getAccount(){
+        echo "quan ly tai khoan";
     }
 
     public function getListByItem($id){
@@ -67,6 +94,7 @@ class PageController extends Controller
         // echo "h";
     }
     
+
     public function getSession(){
        
          if(!session('coo'))
@@ -84,6 +112,14 @@ class PageController extends Controller
     
        //    var_dump($orderItem);
     }
+
+
+     public function getLienhe(){
+     	return view('page.lienhe');
+     }
+     public function getGioithieu(){
+     	return view('page.gioithieu');
+     }
 
     
 }

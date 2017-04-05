@@ -11,6 +11,8 @@ use App\ClientLogin;
 class ClientController extends Controller
 {
     //
+    
+      
      public function getList(){
      	 $client =  Client::paginate(10);
          return View('admin.client.list',['client'=>$client]);
@@ -72,4 +74,7 @@ class ClientController extends Controller
      public function postRegister(){
 
      }
+
+    
+
 }
