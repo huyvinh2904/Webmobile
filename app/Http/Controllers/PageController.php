@@ -16,9 +16,6 @@ use App\Product;
 use App\OrderItem;
 
 use App\Http\Requests;
-use App\Item;
-use App\Category;
-use App\Product;
 
 
 use DB;

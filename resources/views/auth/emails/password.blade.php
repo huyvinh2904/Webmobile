@@ -1,1 +1,2 @@
-Click here to reset your password: <a href="{{ $link = url('password/reset', $token).'?email='.urlencode($user->getEmailForPasswordReset()) }}"> {{ $link }} </a>
+Hey anh, Đăng nhập đê anh zai!!. <br>
+Please click {{ URL::to('verify/' . $code_active) }} to confirm email

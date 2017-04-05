@@ -14,7 +14,7 @@ class ClientLogin extends Authenticatable
      */
     protected $table ="clients";
     protected $fillable = [
-        'username', 'email', 'password',
+        'first_name', 'email', 'password','country','last_name','phone_number','address','code_active',
     ];
 
     /**
