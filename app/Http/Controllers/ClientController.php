@@ -41,6 +41,14 @@ class ClientController extends Controller
      	  	return redirect('admin/client/list')->with('message','Deleted');
      	
      }
+
+     public function getDetail($id){
+          $client = Client::find($id);
+          return view ('admin.client.detail',['client'=>$client]);
+
+     }
+
+
      public function showLoginForm(){
           return view('auth.login');
 

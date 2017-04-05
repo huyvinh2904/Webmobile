@@ -220,5 +220,6 @@
             var iid3 = "countbox_3";
             CountBack_slider(gsecs3,"countbox_3", 3);
         </script>
+         @yield('script')
   </body>
 </html>
