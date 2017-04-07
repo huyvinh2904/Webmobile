@@ -140,7 +140,10 @@ Route::group(['prefix'=>'product'],function(){
 });
 
 Route::get('index', 'PageController@getIndex1');
-Route::get('myaccount', 'PageController@getAccount');
+Route::get('myaccount/{id}', 'PageController@getAccount')->middleware('clients');
+Route::get('myorder/{id}', 'PageController@getMyorder')->middleware('clients');
+Route::get('EditMyaccount/{id}', 'PageController@Edit')->middleware('clients');
+Route::post('PostEditAccount/{id}','PageController@postEdit')->middleware('clients');
 
 Route::get('list-product/{id}','PageController@getListByCategory');
 Route::get('all-list/{id}','PageController@getListByItem');
@@ -170,4 +173,7 @@ Route::get('logout','PageController@getLogout');
 
 
 
+
 Route::get('testclose', 'PageController@testClose');
+
+Route::get('verify/{code_active}','ClientController@getConfirm');

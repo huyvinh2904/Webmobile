@@ -68,6 +68,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                
             </div>
             <!-- /.row -->
         </div>

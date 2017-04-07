@@ -7,6 +7,21 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
+                 @if(count($errors)>0)
+                    <div class="alert alert-danger">
+                    @foreach($errors->all() as $err)
+                        
+                        {{$err}}<br>
+                        @endforeach
+                    </div>
+
+                    @endif
+                    @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}
+                    </div>
+
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="login">
                         {{ csrf_field() }}
 
@@ -53,8 +68,6 @@
                                 <button type="submit" class="btn btn-danger">
                                     <i class="fa fa-btn fa-sign-in"></i> Login
                                 </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
                     </form>
