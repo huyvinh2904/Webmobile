@@ -2,9 +2,11 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait; 
 
-class User extends Authenticatable
+class User extends Model implements Authenticatable 
 {
     /**
      * The attributes that are mass assignable.
