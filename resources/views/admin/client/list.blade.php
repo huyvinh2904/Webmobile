@@ -22,14 +22,11 @@
                     <tr align="center">
                         <th><button type="submit" class="btn btn-danger">DEL</button></th>
                         <th>First Name</th>
-                        <th>Last Name</th>
                         <th>Email</th>
                         <th>Address</th>
-                        <th>Town</th>
-                        <th>Country</th>
-                        <th>Created At</th>
                         <th>Active</th>
                         <th>Delete</th>
+                        <th>Detail</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,15 +35,12 @@
                     <tr class="odd gradeX" align="center">
                      <td><input type="checkbox" name="client_check[]" value="{{$cl->id}}"></td>
                         <td>{{$cl->first_name}}</td>
-                        <td>{{$cl->last_name}}</td>
                         <td>{{$cl->email}}</td>
                         <td>{{$cl->address}}</td>
-                        <td>{{$cl->town}}</td>
               
-                        <td>{{$cl->getCountry->name}}</td>
                         <td>{{$cl->created_at}}</td>
-                        <td>{{ active($cl->active)}}</td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return confirm('Delete?')" href="admin/client/delete/{{$cl->id}}"> Delete</a></td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a  href="admin/client/detail/{{$cl->id}}"> Detail</a></td>
                     </tr>
                    @endforeach
                     </tbody>
