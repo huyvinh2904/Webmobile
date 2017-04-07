@@ -705,18 +705,22 @@
                                 <div class="title-group"><h2>Bán chạy</h2></div>
                                 <div class="product-list">
                                 <?php
-                                $pricemax = DB::table('orders_items')->limit(3)->get();
-                                ?>
+                                $pricemax = DB::table('orders_items')->limit(3)
+                                ->where('qty','=','5')
+                        ->join('products','products.id','=','orders_items.product')
+                        ->select('products.name as name','products.price_sale_off as price_sale_off','products.price as price','products.id as id','products.image as image')
+                        ->get();
+                        ?>
                                    
                               @foreach($pricemax as $pcm)
                            
                                     <div class="products-grid">
                                     
                                         <div class="images-container">
-                                            <a class="product-image" title="Accumsan elit " href="#"><img alt="Accumsan elit " src="images/products/18.jpg"></a>
+                                            <a class="product-image" title="Accumsan elit " href="#"><img alt="Accumsan elit " src="admin_asset/catalogue/{{$pcm->image}}"></a>
                                         </div>
                                         <div class="des-container">
-                                            <h2 class="product-name"><a title="Accumsan elit " href="#"></a></h2>
+                                            <h2 class="product-name"><a title="Accumsan elit " href="#">{{$pcm->name}}</a></h2>
                                             <div class="ratings">
                                                 <div class="rating-box">
                                                     <div style="width:67%" class="rating"></div>
@@ -725,10 +729,15 @@
                                             </div>
                                             <div class="price-box">
                                                 <p class="special-price">
-                                                    <span class="price">$169.99</span>
+                                                    <span class="price">@if($pcm->price_sale_off !=0)
+                                                            {{$pcm->price_sale_off}}
+                                                            @else
+                                                            {{$pcm->price}}
+                                                            @endif
+                                                             USD</span>
                                                 </p>
                                                 <p class="old-price">
-                                                    <span class="price">$189.00</span>
+                                                    <span class="price">{{$pcm->price}}</span>
                                                 </p>
                                             </div>
                                         </div>
