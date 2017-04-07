@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\ClientLogin;
 use Validator;
 use DB;
+use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -33,7 +34,7 @@ class AuthController extends Controller
 
      */
     
-    protected $redirectTo = 'myaccount';
+    protected $redirectTo = 'index';
 
 
     /**
@@ -58,6 +59,10 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:clients',
             'password' => 'required|min:6|confirmed',
+            'phone' => 'required',
+            'adress' => 'required',
+            'lastname' => 'required',
+            'country' => 'required',
             
         ]);
     }
@@ -82,10 +87,11 @@ public function getLogin(){
 
             return $this->sendLockoutResponse($request);
         }
+        
 
         $credentials = $this->getCredentials($request);
 
-        if (Auth::guard('clients')->attempt($credentials, $request->has('remember'))) {
+        if (Auth::guard('clients')->attempt($credentials, $request->has('remember')) && Auth::guard('clients')->user()->active == 2) {
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
@@ -115,7 +121,7 @@ public function postRegister(Request $request)
 
         Auth::guard('clients')->login($this->create($request->all()));
 
-        return create($request->all());
+        return redirect($this->redirectPath());
     }
 
     /**
@@ -126,12 +132,26 @@ public function postRegister(Request $request)
      */
     protected function create(array $data)
     {
-        return ClientLogin::create([
-            'name' => $data['name'],
+        $code_active = str_random(30);
+        $client = ClientLogin::create([
+            'first_name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'coutry'=> 'abc',
+            'country'=> $data['country'],
+            'address'=>$data['adress'],
+            'phone_number'=>$data['phone'],
+            'code_active'=>$code_active,
+            'last_name'=>$data['lastname'],
             
         ]);
+         $data['code_active']  = $client->code_active;
+
+            Mail::send('auth.emails.password', $data, function($message) use ($data)
+            {
+                $message->from('tranvinhhuy2904@gmail.com', "Em đây");
+                $message->subject("Kích hoạt đi anh zai!");
+                $message->to($data['email']);
+            });
+            return $client;
     }
 }

@@ -43,5 +43,28 @@ class ClientController extends Controller
      	  	return redirect('admin/client/list')->with('message','Deleted');
      	
      }
-    
+      public function getConfirm($code_active)
+    {
+        if( ! $code_active)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $client = Client::where('code_active',$code_active)->first();
+
+        if (  $client)
+        {
+            $client->active = 2;
+          $client->code_active = null;
+           $client->save();
+        }
+
+        
+
+        
+
+        return redirect('login')->with('thongbao','OK rồi vào đê anh zai!');
+    }
 }
+    
+
