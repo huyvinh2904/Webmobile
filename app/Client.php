@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    protected $table ="clients";
-	
+
+	 protected $table ="clients";
+
     public function getOrder(){
     	return $this->hasMany('App\Order','client','id');
     }

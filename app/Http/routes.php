@@ -37,7 +37,7 @@ Route::	group(['prefix'=>'ajax'],function(){
 	});
 /*End*/
 
-
+Route::get('checkout','PageController@getCheckout');
 Route::get('admin/login','AdminController@getLogin');
 Route::post('admin/login','AdminController@postLogin');
 
@@ -140,12 +140,15 @@ Route::group(['prefix'=>'product'],function(){
 });
 
 Route::get('index', 'PageController@getIndex1');
-Route::get('myaccount', 'PageController@getAccount');
+Route::get('myaccount/{id}', 'PageController@getAccount')->middleware('clients');
+Route::get('myorder/{id}', 'PageController@getMyorder')->middleware('clients');
+Route::get('EditMyaccount/{id}', 'PageController@Edit')->middleware('clients');
+Route::post('PostEditAccount/{id}','PageController@postEdit')->middleware('clients');
 
 Route::get('list-product/{id}','PageController@getListByCategory');
 Route::get('all-list/{id}','PageController@getListByItem');
 Route::get('detail/{id}','PageController@getDetail');
-
+Route::get('detail_cart','PageController@getDetailCart');
 
 
 Route::get('index1', 'HomeController@getIndex1');
@@ -154,7 +157,11 @@ Route::get('index1', 'HomeController@getIndex1');
 Route::get('testsession1', 'PageController@setSession');
 Route::get('testsession2', 'PageController@getSession');
 Route::get('addCategory/{id}/{qty}', 'AjaxController@addCategory');
-
+Route::get('add-cart-detail', 'AjaxController@addCartDetail');
+Route::get('update-cart-detail/{number}','AjaxController@updateCartDetail');
+Route::get('update-mini-cart','AjaxController@updateMiniCart');
+Route::get('down-qty-cart/{number}','AjaxController@downQtyCart');
+Route::get('up-qty-cart/{number}','AjaxController@upQtyCart');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -166,5 +173,12 @@ Route::get('logout','PageController@getLogout');
 
 
 
+
 Route::get('verify/{code_active}','ClientController@Confirm');
+
+
+
+Route::get('testclose', 'PageController@testClose');
+
+Route::get('verify/{code_active}','ClientController@getConfirm');
 

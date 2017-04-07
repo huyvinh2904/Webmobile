@@ -50,8 +50,8 @@
                     @endforeach
                       </tbody>
                       </form>
-                      {{$order->links()}}
-                </table>
+                     
+                </table> {{$order->links()}}
             </div>
             <!-- /.row -->
         </div>

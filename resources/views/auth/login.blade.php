@@ -7,7 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
-                @if(count($errors)>0)
+
+                 @if(count($errors)>0)
+
                     <div class="alert alert-danger">
                     @foreach($errors->all() as $err)
                         
@@ -69,8 +71,6 @@
                                 <button type="submit" class="btn btn-danger">
                                     <i class="fa fa-btn fa-sign-in"></i> Login
                                 </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
                     </form>

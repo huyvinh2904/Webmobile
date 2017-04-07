@@ -34,7 +34,7 @@ class AuthController extends Controller
 
      */
     
-    protected $redirectTo = 'myaccount';
+    protected $redirectTo = 'index';
 
 
     /**
@@ -59,11 +59,14 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:clients',
             'password' => 'required|min:6|confirmed',
-            'country'=> 'required',
-            'phone'=>'required',
-            'adress'=>'required',
-            'lastname'=>'required',    
-            ]);
+
+            'phone' => 'required',
+            'adress' => 'required',
+            'lastname' => 'required',
+            'country' => 'required',
+            
+        ]);
+
     }
 
 
@@ -86,10 +89,11 @@ class AuthController extends Controller
 
             return $this->sendLockoutResponse($request);
         }
+        
 
         $credentials = $this->getCredentials($request);
 
-        if (Auth::guard('clients')->attempt($credentials, $request->has('remember'))) {
+        if (Auth::guard('clients')->attempt($credentials, $request->has('remember')) && Auth::guard('clients')->user()->active == 2) {
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
@@ -150,5 +154,6 @@ class AuthController extends Controller
                 $message->to($data['email']);
             });
           return redirect('login')->with('thongbao','Check mail đi anh zai!');
+
     }
 }
