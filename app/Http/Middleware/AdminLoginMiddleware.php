@@ -13,9 +13,9 @@ class AdminLoginMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = 'web')
     {
-        if(Auth::check()){
+        if(Auth::guard($guard)->check()){
               return $next($request);
         }
         else {

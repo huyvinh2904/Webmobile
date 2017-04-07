@@ -33,7 +33,7 @@ class ProductController extends Controller
     		[
             'menu'     =>'required',
             'category' =>'required',
-            'name'     =>'required|min:3|max:30|unique:products,name',
+            'name'     =>'required|min:3|max:30',
             'descrip'  =>'required'
             
             
@@ -46,7 +46,6 @@ class ProductController extends Controller
             'name.required'     =>'Bạn chưa nhập Product',
             'name.min'          =>'Product ít nhất là 3 ký tự.',
             'name.max'          =>'Product nhiều nhất là 30 ký tự.',
-            'name.unique'       =>'Product đã tồn tại.',
             'descrip.required'  =>'Bạn chưa nhập mo ta'
           
 
@@ -56,6 +55,7 @@ class ProductController extends Controller
         $product->description    = $request->descrip;
         $product->price          = $request->price;
         $product->price_sale_off = $request->price_sale_off;
+        $product->ishot = $request->ishot;
     	if ($request->hasFile('image')) {
                 $file =$request->file('image');
                 $duoi =$file->getClientOriginalExtension();
