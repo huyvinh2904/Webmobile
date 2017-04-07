@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class AuthController extends Controller
+class AuthController extends Controller 
 {
     /*
     |--------------------------------------------------------------------------
@@ -136,9 +136,10 @@ class AuthController extends Controller
                 );
         }
 
-        Auth::guard('clients')->login($this->create($request->all()));
+        $this->create($request->all());
+         return redirect('login')->with('thongbao','Check mail đi anh zai!');
 
-        return redirect($this->redirectPath());
+        /*return redirect($this->redirectPath())->with('thongbao','Check mail đi anh zai!');*/
     }
 
     /**
@@ -168,7 +169,7 @@ class AuthController extends Controller
                 $message->subject("Kích hoạt đê anh zai!!!");
                 $message->to($data['email']);
             });
-          return redirect('login')->with('thongbao','Check mail đi anh zai!');
+         
 
     }
 }
