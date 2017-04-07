@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="#">
-     <base href="{{asset('')}}">
+
+  <base href="{{asset('')}}">
 
     <title>Web Mobie</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +37,7 @@
  
         
        @include('layout.footer')
-        
+
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.nivo.slider.pack.js"></script>

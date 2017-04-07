@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'post_code' => '084',
             'town' => 'Hà Nội',
             'last_name' => 'Trần',
-            'country' => 'Việt Nam',
+            'country' => '1',
             'address' => 'Thanh Xuân',
         ]);
     }

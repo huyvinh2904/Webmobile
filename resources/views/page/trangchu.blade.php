@@ -89,6 +89,46 @@
                                                 </div>
                                             </div>
                                             <div class="content-box">
+
+                                                <h2 class="product-name"><a href="" title="Fusce aliquam">Fusce aliquam</a></h2>
+                                                <div class="price-box">
+                                                    <p class="special-price">
+                                                        <span class="price-label">Special Price</span>
+                                                        <span class="price">$99.00</span>
+                                                    </p>
+                                                    <p class="old-price">
+                                                        <span class="price-label">Regular Price: </span>
+                                                        <span class="price">$170.00</span>
+                                                    </p>
+                                                </div>
+                                                <div class="ratings">
+                                                    <div class="rating-box">
+                                                        <div class="rating" style="width:67%"></div>
+                                                    </div>
+                                                    <span class="amount"><a href="#">1 Review(s)</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='timer-item item'>
+                                        <div class="item-inner">
+                                            <div class="images-container">
+                                                <a href="#" title="Quisque in arcu" class="product-image"><img src="images/products/2.jpg" alt="Quisque in arcu" /></a>
+                                                <div class="box-timer">
+                                                    <div class="countbox_2 timer-grid"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content-box">
+                                                <h2 class="
+
+
+
+
+
+
+
+                                                product-name"><a href="#" title="Quisque in arcu">Quisque in arcu</a></h2>
+
                                                 <h2 class="product-name"><a href="#" title="Fusce aliquam">{{$pr2->name}}</a></h2>
                                                 <div class="price-box">
                                                     <p class="special-price">
@@ -546,7 +586,7 @@
                                                 <div class="product_icon">
                                                     <div class='new-icon'><span>new</span></div>
                                                 </div>
-                                                <a href="#" title="Nunc facilisis" class="product-image">
+                                                <a href="detail/{{$pr->id}}" title="Nunc facilisis" class="product-image">
                                                     <img src="admin_asset/catalogue/{{$pr->image}}" alt="{{$pr->name}}" />
                                                 </a>
                                                 <div class="box-hover">
@@ -607,7 +647,7 @@
                                                     <div class='new-icon'><span>new</span></div>
                                                     <div class="sale-icon"><span>sale</span></div>
                                                 </div>
-                                                <a href="#" title="Nunc facilisis" class="product-image">
+                                                <a href="detail/{{$prNew->id}}" title="Nunc facilisis" class="product-image">
                                                     <img src="admin_asset/catalogue/{{$prNew->image}}" alt="{{$prNew->name}}" />
                                                 </a>
                                                 <div class="box-hover">

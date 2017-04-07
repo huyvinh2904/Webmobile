@@ -12,7 +12,9 @@
                          @if (Auth::guard('clients')->check() && Auth::guard('clients')->user()->active == 2 )                         
                             <li class="dropdown">
                                <a href="#" class="account dropdown-toggle" data-toggle="dropdown">
-                                  {{Auth::guard('clients')->user()->first_name}}
+
+                                 {{Auth::guard('clients')->user()->first_name}}
+
                                </a> 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a title="My Account" href="myaccount/{{Auth::guard('clients')->user()->id}}">My Account</a></li> 

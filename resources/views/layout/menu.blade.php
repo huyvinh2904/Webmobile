@@ -1,3 +1,12 @@
+      <style type="text/css">
+          .btn-number{
+                font-size: 9px;
+    background-color: #f44336;
+    border-radius: 5px;
+          }
+
+      </style>      
+
             <div class="header-bottom">
                 <div class="container">
                     <div class="row">
@@ -49,12 +58,13 @@
                             <div class="mini-cart">
                                 <div class="top-cart-title">
                                     <a href="cart.html" class="dropdown-toggle" data-toggle="dropdown">
-                                          your cart1
+                                          your cart
                                         <span class="price">$45.00</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
+                                    
                                         <div class="cart-listing" id="cart-listing">
-                                            @if(session('listProduct'))
+                                          @if(session('listProduct'))  
                                      @foreach (session('listProduct') as $vl)
                                     <div class="media">
                                     <div class="media-left"><a href="#"><img src="admin_asset/catalogue/{{$vl->getProduct->image}}" alt="" class="img-responsive"></a></div>
@@ -66,23 +76,72 @@
                                     </div>
                                     </div>
                                     @endforeach
-                                      
-                                            @endif
+                                      @endif
+                                             
                                         </div><!-- /.cart-listing -->
-
-
-                                        <div class="mini-cart-subtotal">Total: <span class="price">$200.00</span></div>
                                         <div class="checkout-btn">
-                                            <a href="#" class="btn btn-default btn-md fwb">CHECK OUT</a>
+                                            <a href="checkout" class="btn btn-default btn-md fwb">CHECK OUT</a>
+                                       <button type="button" style="float: right;" onclick="addCartDetail()" class="btn btn-default btn-md fwb" data-toggle="modal" data-target="#myModal">DETAIL</button>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
+
+
+
+
+
+                            
                         </div>
                     </div>
+
+                     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">List Product</h4>
+        </div>
+        <div class="modal-body">
+
+           <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                    <tr align="center">
+                        <th >Name</th>
+                        <th>Image</th>
+                        <th>Quality</th>
+                        <th>Price</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableID">
+<!--                @foreach (session('listProduct') as $vl)
+                    <tr class="odd gradeX header" align="center">
+                        <td>{{$vl->getProduct->name}}</td>
+                        <td><img style="width: 70px" src="admin_asset/catalogue/{{$vl->getProduct->image}}" alt="" class="img-responsive"></td>
+                        <td><input  id="quantity" type="number" value="{{$vl->qty}}" name="quantity" min="1" max="5"></td>
+                        <td>{{$vl->price}}</td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return confirm('sure?')" href=""> Delete</a></td>
+                        
+                    </tr> -->
+                    <!-- @endforeach -->
+                      </tbody>
+        </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="mega-container visible-lg visible-md">
+                            <div class="mega-container visible-lg visible-md" style="position: relative; z-index: 250;">
                                 <div class="navleft-container">
                                     <div class="mega-menu-title"><h3>Category</h3></div>
                                     <div class="mega-menu-category">
@@ -183,4 +242,42 @@
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container -->
                 </nav>
-            </div><!-- /.header-bottom -->
+</div><!-- /.header-bottom -->
+
+    <script type="text/javascript">
+      
+                function addCartDetail() { 
+                             $.get("add-cart-detail/", function (data) {
+                                  $('#tableID').html(data);
+                          });
+
+                   }
+
+                   function updateCartDetail(number){
+                        $.get("update-cart-detail/"+number, function (data) {
+                                  $('#tableID').html(data);
+                          });
+                       updateMiniCart();
+                   }
+
+                   function updateMiniCart(){
+                    $.get("update-mini-cart/", function (data) {
+                                $('#cart-listing').html(data);
+                          });
+                   }
+
+                   function down_qty(number){
+                     $.get("down-qty-cart/"+number, function (data) {
+                                  $('#tableID').html(data);
+                          });
+
+                   }
+
+                    function up_qty(number){
+                     $.get("up-qty-cart/"+number, function (data) {
+                                  $('#tableID').html(data);
+                          });
+
+                   }
+ 
+    </script>

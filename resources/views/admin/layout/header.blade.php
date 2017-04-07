@@ -27,6 +27,5 @@
         </li>
         <!-- /.dropdown -->
     </ul>
-    @include('admin.layout.menu')
-
 </nav>
+  @include('admin.layout.menu')

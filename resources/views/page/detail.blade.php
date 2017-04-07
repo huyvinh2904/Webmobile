@@ -31,12 +31,12 @@
                                     <div class="box-container2"> 
                                         <div class="price-box">
                                             <p class="special-price">
-                                                <span class="price-label">{{$product->price}}</span>
-                                            <span id="product-price-1" class="price">$99.00</span>
+                                                <span class="price-label">gia </span>
+                                            <span id="product-price-1" class="price">{{$product->price_sale_off}}</span>
                                             </p>
                                             <p class="old-price">
                                                 <span class="price-label">Regular Price:</span>
-                                                <span id="old-price-1" class="price">{{$product->price_sale_off}}</span>
+                                                <span id="old-price-1" class="price">{{$product->price}}</span>
                                             </p>
                                         </div>
                                     </div>
@@ -57,7 +57,8 @@
                                                 </div><!-- /input-group -->
                                             </div>
                                         </div>
-                                        <button  id="add_cart"  class="btn btn-danger btn-cart">Add to cart</button>
+                                        <button id="add_cart" class="btn btn-danger btn-cart">Add to cart</button>
+                                    
                                     </div>
                                 </div><!-- /.product-shop -->
                             </div>
@@ -118,12 +119,13 @@
 
         @section('script')
     <script>
-        // alert("da cahy");
+
                 document.getElementById("add_cart").addEventListener("click", addCart);
+
                 function addCart() {
+                    // debugger;
                       var quantity= $('#quantity').val();
                       var idProduct = {{$product->id}};
-
                              $.get("addCategory/" + idProduct+"/"+quantity , function (data) {
                                   $('#cart-listing').html(data);
                           });
