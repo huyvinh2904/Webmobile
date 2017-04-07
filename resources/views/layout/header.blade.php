@@ -12,7 +12,7 @@
                          @if (Auth::guard('clients')->check())                         
                             <li class="dropdown">
                                <a href="#" class="account dropdown-toggle" data-toggle="dropdown">
-                                  Admin 
+                                 {{Auth::guard('clients')->user()->first_name}}
                                </a> 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a title="My Account" href="account.html"></a></li> 

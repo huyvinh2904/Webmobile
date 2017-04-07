@@ -14,7 +14,7 @@ class ClientController extends Controller
     
       
      public function getList(){
-     	 $client =  Client::paginate(10);
+     	 $client =  Client::orderBy('id','DESC')->paginate(10);
          return View('admin.client.list',['client'=>$client]);
      }
 

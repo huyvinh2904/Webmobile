@@ -576,10 +576,10 @@
                                             <h2 class="product-name"><a href="detail/{{$pr->id}}" title="{{$pr->name}}">{{$pr->name}}</a></h2>
                                             <div class="price-box">
                                                 <p class="special-price">
-                                                    <span class="price">{{$pr->price}}</span>
+                                                    <span class="price">{{$pr->price_sale_off}}</span>
                                                 </p>
                                                 <p class="old-price">
-                                                    <span class="price">{{$pr->price_sale_off}}</span>
+                                                    <span class="price">{{$pr->price}}</span>
                                                 </p>
                                             </div>
                                             <div class="ratings">

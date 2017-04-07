@@ -13,7 +13,8 @@ class OrderController extends Controller
     //
     public function getList(){
     	$this->_updateOrder();
-    	$order = Order::paginate(10);
+    	$order = Order::orderBy('id', 'DESC')->paginate(10);
+     //   Post::orderBy('id', 'DESC')->get();
     	//$orderItem = OrderItem::all();
     	return view('admin.order.list',['order'=>$order]);
     }
