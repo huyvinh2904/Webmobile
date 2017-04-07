@@ -13,9 +13,11 @@ class ClientAuthenticate
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = '')
+    public function handle($request, Closure $next, $guard = 'clients')
     {
-        
+        if(!Auth::guard($guard)->check()){
+            return redirect('login');
+        }
 
         return $next($request);
     }
