@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 
 use Cookie;
+
+use Session;
+use App\Item;
+use App\Category;
+use App\Product;
+use App\OrderItem;
+
 use App\Http\Requests;
 use App\Item;
 use App\Category;
@@ -19,6 +26,7 @@ use App\Client;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -108,25 +116,50 @@ class PageController extends Controller
     	return view('page.detail',['product'=>$product]);
     }
 
-    public function getCookie(){
-        $arr = ['1'=>'dong','2'=>'tuan','3'=>'nam'];
-        $name = "coo" ;
-        Cookie::queue($name, $arr, 10000);
+    public function setSession(){
+         $item1 = Item::find(1);
+         $item2 = Item::find(2);
+         $arr = array($item1,$item2);
 
-          $value = Cookie::get($name); 
-          
+       // $arr = ['1'=>'dong','2'=>'tuan','3'=>'nam'];
+       $name = "coo" ;
+        Session::set($name, $arr);
+          $value = Session::get($name); 
+          echo"<pre>";
+
           var_dump($value);
+        //  $request->session()->flush();
         // return view('page.test_cookie');
         // echo "h";
-
     }
     
+
+    public function getSession(){
+       
+         if(!session('coo'))
+         {
+            echo"ko ton tai";
+         }
+         else{
+              $item3 = Item::find(3);
+             $value = Session::get('coo'); 
+             array_push($value, $item3);
+             echo"<pre>";
+             var_dump($value[1]->name);
+         }
+        
+    
+       //    var_dump($orderItem);
+    }
+
+
      public function getLienhe(){
      	return view('page.lienhe');
      }
      public function getGioithieu(){
      	return view('page.gioithieu');
      }
+
      public function getMyorder($id){
         $getOrder = Order::where('client',$id)->get();
         if($getOrder){
@@ -141,5 +174,6 @@ class PageController extends Controller
 
         
      }
+
     
 }

@@ -109,6 +109,7 @@ Route::group(['prefix'=>'product'],function(){
         Route::get('list','ClientController@getList');
         Route::get('delete/{id}','ClientController@getDelete');
         Route::post('delete_many','ClientController@getDeleteMany');
+        Route::get('detail/{id}','ClientController@getDetail');
     });
     Route::group(['prefix'=>'order'],function(){
         Route::get('list','OrderController@getList');
@@ -153,6 +154,10 @@ Route::get('detail/{id}','PageController@getDetail');
 Route::get('index1', 'HomeController@getIndex1');
 
 
+Route::get('testsession1', 'PageController@setSession');
+Route::get('testsession2', 'PageController@getSession');
+Route::get('addCategory/{id}/{qty}', 'AjaxController@addCategory');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -163,4 +168,6 @@ Route::post('register','Auth\AuthController@postRegister');
 Route::get('logout','PageController@getLogout');
 
 
+
 Route::get('verify/{code_active}','ClientController@getConfirm');
+
