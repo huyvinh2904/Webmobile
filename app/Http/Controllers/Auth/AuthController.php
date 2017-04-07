@@ -69,12 +69,20 @@ class AuthController extends Controller
 
     }
 
-
+    /**
+     * Get view login.
+     */
 
     public function getLogin(){
         return view('auth.login');
 
     }
+     /**
+     * Post Login
+     *
+     * @param  $request
+     * 
+     */
     public function postLogin(Request $request)
     {
         $this->validateLogin($request);
@@ -106,11 +114,18 @@ class AuthController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
+     /**
+     * Get page Register.
+     */
     public function getRegister(){
         $country = DB::table('countries')->get();
         return view('auth.register',['country'=>$country]);
 
     }
+     /**
+     * Post form Register
+     * @param  $request
+     */
     public function postRegister(Request $request)
     {
         $validator = $this->validator($request->all());

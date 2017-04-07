@@ -43,7 +43,9 @@ class ClientController extends Controller
      	  	return redirect('admin/client/list')->with('message','Deleted');
      	
      }
-
+       /**
+     * Get confirm of user after Resgister
+     */
       public function getConfirm($code_active)
     {
         if( ! $code_active)
@@ -73,6 +75,11 @@ class ClientController extends Controller
           return view ('admin.client.detail',['client'=>$client]);
 
      }
+      /**
+     * Fix infomation of colum active of table clients.
+     *
+     * @param  $code_active
+     */
     public function Confirm($code_active)
     {
         if( ! $code_active)
@@ -104,7 +111,7 @@ class ClientController extends Controller
 
 
 
-}
+
     
 
 
