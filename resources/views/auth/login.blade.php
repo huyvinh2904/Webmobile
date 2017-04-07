@@ -7,7 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
+
                  @if(count($errors)>0)
+
                     <div class="alert alert-danger">
                     @foreach($errors->all() as $err)
                         
@@ -24,6 +26,7 @@
                     @endif
                     <form class="form-horizontal" role="form" method="POST" action="login">
                         {{ csrf_field() }}
+
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>

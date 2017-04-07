@@ -174,6 +174,11 @@ Route::get('logout','PageController@getLogout');
 
 
 
+Route::get('verify/{code_active}','ClientController@Confirm');
+
+
+
 Route::get('testclose', 'PageController@testClose');
 
 Route::get('verify/{code_active}','ClientController@getConfirm');
+

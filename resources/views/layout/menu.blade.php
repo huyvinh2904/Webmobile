@@ -182,7 +182,6 @@
                                 @foreach($Item as $it1)
                                 <li><a href="all-list/{{$it1->id}}">{{$it1->name}}</a></li>                                
                                @endforeach
-                                <li><a href="blog.html"></a></li>
                                 <li><a href="lienhe">Liên hệ</a></li>
                             </ul>
                         </div>

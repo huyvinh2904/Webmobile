@@ -59,21 +59,31 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:clients',
             'password' => 'required|min:6|confirmed',
+
             'phone' => 'required',
             'adress' => 'required',
             'lastname' => 'required',
             'country' => 'required',
             
         ]);
+
     }
 
+    /**
+     * Get view login.
+     */
 
+    public function getLogin(){
+        return view('auth.login');
 
-public function getLogin(){
-    return view('auth.login');
-
-}
- public function postLogin(Request $request)
+    }
+     /**
+     * Post Login
+     *
+     * @param  $request
+     * 
+     */
+    public function postLogin(Request $request)
     {
         $this->validateLogin($request);
 
@@ -104,19 +114,26 @@ public function getLogin(){
 
         return $this->sendFailedLoginResponse($request);
     }
-public function getRegister(){
-    $country = DB::table('countries')->get();
-    return view('auth.register',['country'=>$country]);
-    
-}
-public function postRegister(Request $request)
+     /**
+     * Get page Register.
+     */
+    public function getRegister(){
+        $country = DB::table('countries')->get();
+        return view('auth.register',['country'=>$country]);
+
+    }
+     /**
+     * Post form Register
+     * @param  $request
+     */
+    public function postRegister(Request $request)
     {
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
             $this->throwValidationException(
                 $request, $validator
-            );
+                );
         }
 
         Auth::guard('clients')->login($this->create($request->all()));
@@ -135,23 +152,23 @@ public function postRegister(Request $request)
         $code_active = str_random(30);
         $client = ClientLogin::create([
             'first_name' => $data['name'],
+            'last_name' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'country'=> $data['country'],
-            'address'=>$data['adress'],
+            'country'=>$data['country'],
             'phone_number'=>$data['phone'],
-            'code_active'=>$code_active,
-            'last_name'=>$data['lastname'],
-            
-        ]);
-         $data['code_active']  = $client->code_active;
+            'address' =>$data['adress'],
+            'code_active' => $code_active,
 
-            Mail::send('auth.emails.password', $data, function($message) use ($data)
+            ]);
+         $data['code_active']  = $client->code_active;
+          Mail::send('auth.emails.password', $data, function($message) use ($data)
             {
                 $message->from('tranvinhhuy2904@gmail.com', "Em đây");
-                $message->subject("Kích hoạt đi anh zai!");
+                $message->subject("Kích hoạt đê anh zai!!!");
                 $message->to($data['email']);
             });
-            return $client;
+          return redirect('login')->with('thongbao','Check mail đi anh zai!');
+
     }
 }

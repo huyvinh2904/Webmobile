@@ -13,13 +13,13 @@
                             <li class="dropdown">
                                <a href="#" class="account dropdown-toggle" data-toggle="dropdown">
 
+
                                  {{Auth::guard('clients')->user()->first_name}}
 
                                </a> 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a title="My Account" href="myaccount/{{Auth::guard('clients')->user()->id}}">My Account</a></li> 
                                     <li><a title="My Cart" href="myorder/{{Auth::guard('clients')->user()->id}}">My Order</a></li>
-                                    <li><a title="Checkout" href="checkout.html">Checkout</a></li>
                                     <li><a title="Testimonial" href="logout">Logout</a></li>
                                     
                                 </ul> 
