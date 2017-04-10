@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
      public function getList(){
          
-         $Cate = Category::all();
+         $Cate = Category::orderBy('id','DESC')->paginate(10);
          return view('admin.category.list',['Cate' => $Cate]);
          
      }
