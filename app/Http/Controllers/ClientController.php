@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use DB;
 use App\Http\Requests;
 use App\Client;
 use App\ClientLogin;
@@ -43,7 +43,9 @@ class ClientController extends Controller
      	  	return redirect('admin/client/list')->with('message','Deleted');
      	
      }
-
+       /**
+     * Get confirm of user after Resgister
+     */
       public function getConfirm($code_active)
     {
         if( ! $code_active)
@@ -68,34 +70,43 @@ class ClientController extends Controller
           return view ('admin.client.detail',['client'=>$client]);
 
      }
+      /**
+     * Fix infomation of colum active of table clients.
+     *
+     * @param  $code_active
+     */
+    public function Confirm($code_active)
+    {
+        if( ! $code_active)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
 
+        
+        $client = Client::where('code_active',$code_active)->first();
+        
 
-     public function showLoginForm(){
-          return view('auth.login');
+        if ($client)
+        {
+            $client->active = 2;
+            $client->code_active = null;
+            $client->save();
+        }
 
-     }
-     public function postLogin(Request $request){
-          if (Auth::guard('clients')->attempt(['email'=>$request->email,'password'=>$request->password])) {
-               echo "ok";
-          }
-          else{
-               return redirect('login')->with('thongbao','Dang nhap khong thanh cong');
-          }
+        
 
-     }
-     public function Logout(){
-          Auth::guard('clients')->logout();
-          return redirect('index');
-     }
-     public function showRegistrationForm(){
-          return view('auth.register');
-     }
-     public function postRegister(){
+        
 
-     }
-
-    
-
+        return redirect('login')->with('thongbao','You have successfully verified your account.');
+    }
 }
+
     
+    
+
+
+
+
+    
+
 

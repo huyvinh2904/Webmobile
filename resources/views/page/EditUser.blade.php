@@ -48,16 +48,7 @@
                     <input type="email" class="form-control" name="email"  value="{{$Edtinfos->email}}" 
                     readonly="" />
                 </div>
-                <div class="form-group">
-                    
-                    <label>Mật Khẩu</label>
-                    <input type="password" class="form-control change" name="pass" disabled />
-                </div>
-                <div class="form-group">
-                    <label>Nhập lại mật khẩu</label>
-                    <input type="password" class="form-control" name="passagain" 
-                    disabled />
-                </div>
+                
                
                 <button type="submit" class="btn btn-default">Sửa</button>
                 </form>

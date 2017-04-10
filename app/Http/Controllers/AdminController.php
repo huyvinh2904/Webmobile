@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function postLogin(Request $request){
 
     	if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])) {
-			 return redirect('admin/order/list');
+			 return redirect('admin/cate/list');
 		}
 		else{
 			return redirect('admin/login')->with('thongbao','Dang nhap khong thanh cong');

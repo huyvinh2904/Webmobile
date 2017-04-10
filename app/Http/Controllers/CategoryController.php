@@ -10,25 +10,39 @@ use App\Item;
 
 class CategoryController extends Controller
 {
-    public function getList(){
-   
-  	$Cate = Category::all();
-    	return view('admin.category.list',['Cate' => $Cate]);
-    	
-    }
-    public function getAdd(){
-    	$Item = Item::all();
-    	return view('admin.category.add',['Item' => $Item]);
-    }
 
-    /**
-    * @return new a add category
-    */
-    public function postAdd(Request $request){
+
+     /**
+     * Get view list of categories
+     *
+     * @param  $Cate
+     */
+     public function getList(){
+         
+         $Cate = Category::orderBy('id','DESC')->paginate(10);
+         return view('admin.category.list',['Cate' => $Cate]);
+         
+     }
+     /**
+     * Get view categories add form.
+     *
+     * @param  $Item
+     */
+     public function getAdd(){
+       $Item = Item::all();
+       return view('admin.category.add',['Item' => $Item]);
+   }
+     /**
+     * Post add form add categories.
+     *
+     * @param  $request $Cate
+     */
+     public function postAdd(Request $request){
+
         $this->validate($request,
             [
-                'txtCateName'=>'required|min:3|max:15',
-                'theloai'=>'required'
+            'txtCateName'=>'required|min:3|max:15',
+            'theloai'=>'required'
             ],
             [
             'txtCateName.required'=>'Bạn chưa nhập Tên loai tin...',
@@ -47,42 +61,56 @@ class CategoryController extends Controller
         return redirect('admin/cate/list')->with('thongbao','Thêm Thành Công!');
 
     }
+     /**
+     * Get a form categories edit.
+     *
+     * @param  $id
+     */
 
-    public function getEdit($id){
-	$Item = Item::all();
-	$Cate = Category::find($id);
-    return view('admin.category.edit',['CateEdit'=>$Cate,'Item'=>$Item]);
-    	
-    }
 
-    
-    public function postEdit(Request $request,$id){
+     public function getEdit($id){
+       $Item = Item::all();
+       $Cate = Category::find($id);
+       return view('admin.category.edit',['CateEdit'=>$Cate,'Item'=>$Item]);
+       
+         /**
+     * Post Categories form edit.
+     *
+     * @param  $request $id
+     */
+     }
+     public function postEdit(Request $request,$id){
         
-         $this->validate($request,
-            [
-                'txtCateName'=>'required|min:3|max:15|unique:items,name',
-                'theloai1'=>'required'
-            ],
-            [
-            'txtCateName.required'=>'Bạn chưa nhập Tên thể loại...',
-            'txtCateName.min'=>'Tên thể loại phải có độ dài từ 3 đến 15 ký tự',
-            'txtCateName.max'=>'Tên thể loại phải có độ dài từ 3 đến 15 ký tự',
-            'txtCateName.unique'=>'Tên thể loại đã tồn tại',
-            'theloai1.required'=>'Bạn chưa chọn Menu'
+       $this->validate($request,
+        [
+        'txtCateName'=>'required|min:3|max:15|unique:items,name',
+        'theloai1'=>'required'
+        ],
+        [
+        'txtCateName.required'=>'Bạn chưa nhập Tên thể loại...',
+        'txtCateName.min'=>'Tên thể loại phải có độ dài từ 3 đến 15 ký tự',
+        'txtCateName.max'=>'Tên thể loại phải có độ dài từ 3 đến 15 ký tự',
+        'txtCateName.unique'=>'Tên thể loại đã tồn tại',
+        'theloai1.required'=>'Bạn chưa chọn Menu'
 
 
-            ]
-            );
-            
-        $Cate = Category::find($id);
-        $Cate->name = $request->txtCateName;
-        $Cate->item= $request->theloai1;
-        $Cate->save();
-        return redirect('admin/cate/edit/'.$id)->with('thongbao','Sua Thành Công!');
+        ]
+        );
+       
+       $Cate = Category::find($id);
+       $Cate->name = $request->txtCateName;
+       $Cate->item= $request->theloai1;
+       $Cate->save();
+       return redirect('admin/cate/edit/'.$id)->with('thongbao','Sua Thành Công!');
 
-    
-        
-    }
+       
+       
+   }
+     /**
+     * Delete a record of table categories.
+     *
+     * @param  $id
+     */
      public function getDel($id){
         $Cate = Category::find($id);
         $Cate->delete();

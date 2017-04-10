@@ -14,7 +14,7 @@ use App\Http\Requests;
 class ProductController extends Controller
 {
     public function getList(){
-		$product = Product::orderBy('id','DESC')->get();
+		$product = Product::orderBy('id','DESC')->paginate(10);
   
     	return view('admin.product.list',['product' => $product]);
     	

@@ -589,7 +589,14 @@
                                                 <a href="detail/{{$pr->id}}" title="Nunc facilisis" class="product-image">
                                                     <img src="admin_asset/catalogue/{{$pr->image}}" alt="{{$pr->name}}" />
                                                 </a>
-                                            
+
+                                                <div class="box-hover">
+                                                    <ul class="add-to-links">
+                                                        <li><a href="#" class="link-quickview">Quick View</a></li>
+                                                        <li><a href="#" class="link-cart">Add to Cart</a></li>
+                                                    </ul>
+                                                </div>
+
                                             </div>
                                             <div class="des-container">
                                                 <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$pr->name}}</a></h2>
@@ -643,6 +650,14 @@
                                                 <a href="detail/{{$prNew->id}}" title="Nunc facilisis" class="product-image">
                                                     <img src="admin_asset/catalogue/{{$prNew->image}}" alt="{{$prNew->name}}" />
                                                 </a>
+
+                                                <div class="box-hover">
+                                                    <ul class="add-to-links">
+                                                        <li><a href="#" class="link-quickview">Quick View</a></li>
+                                                        
+                                                        <li><a href="#" class="link-cart">Add to Cart</a></li>
+                                                    </ul>
+                                                </div>
 
                                             </div>
                                             <div class="des-container">
