@@ -519,7 +519,7 @@
                             <a href="#"><img alt="" src="images/ads/ads-17.jpg"></a>
                         </div>
                         <div class="page-title">
-                            <h1> {{$category->name}}</h1>
+                            <h1> Search Result: {{$key}}</h1>
                         </div>
                         <div class="toolbar">
                             <div class="sorter">
@@ -566,7 +566,12 @@
                                             <a href="detail/{{$pr->id}}" title="{{$pr->name}}" class="product-image">
                                                 <img src="admin_asset/catalogue/{{$pr->image}}" alt="Nunc facilisis" />
                                             </a>
-                                           
+                                            <div class="box-hover">
+                                                <ul class="add-to-links">
+                                                    <li><a href="#" class="link-quickview">Quick View</a></li>
+                                                    <li><a href="#" class="link-cart">Add to Cart</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="des-container">
                                             <h2 class="product-name"><a href="detail/{{$pr->id}}" title="{{$pr->name}}">{{$pr->name}}</a></h2>

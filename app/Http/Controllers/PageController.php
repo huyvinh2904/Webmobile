@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class PageController extends Controller
 {
     //
-    /*
+    /**
     *  call index View
     */
     function __construct(){
@@ -122,10 +122,41 @@ public function getListByCategory($id){
  return view('page.list',['category'=>$category,'product'=>$product]);
 }
 
+
+    /**
+    * get Check out Category.
+    */
+     public function getCheckout(){
+        if(session('listProduct') &&Auth::guard('clients')->check()){
+             $order = new Order();
+             $order->client = Auth::guard('clients')->user()->id;
+            $order->status=1;
+              $order->save();
+              $total=0;
+              foreach(session('listProduct') as $listOrderItem){
+                    $orderItem = new OrderItem();
+                    $orderItem->order_id = $order->id;
+                     $orderItem->product=  $listOrderItem->product;
+                     $orderItem->price = $listOrderItem->price;
+                     $orderItem->qty = $listOrderItem->qty;
+                     $total = $total+ $listOrderItem->price;
+                     $orderItem->save();
+              }
+              $order->total = $total;
+              $order->save();
+              $value = array();
+             Session::put('listProduct', $value);
+             return redirect('checkout-view');
+        }
+        else{
+            return redirect('login');
+        }
+
 public function getDetail($id){
  $product = Product::find($id);
  return view('page.detail',['product'=>$product]);
 }
+
 
 public function getCookie(){
   $arr = ['1'=>'dong','2'=>'tuan','3'=>'nam'];
@@ -137,6 +168,30 @@ public function getCookie(){
   var_dump($value);
         // return view('page.test_cookie');
         // echo "h";
+
+
+     public function getMyorder($id){
+        $getOrder = Order::where('client',$id)->get();
+        if($getOrder){
+            return view('page.myorder',['getOrder'=>$getOrder]);
+        }
+        else
+        {
+            return "Bạn chưa đặt hàng sản phẩm nào !";
+        }
+     }
+
+     public function getSearch(Request $request){
+         $key = $request->key;
+         $product = Product::where('name','like',"%$key%")->paginate(12);
+         return view('page.search_result',['product'=>$product,'key'=>$key]);
+     }
+    
+     public function getViewCheckout(){
+        return view('page.checkout');
+     }
+
+
 
 }
 
@@ -160,5 +215,6 @@ public function getMyorder($id){
 
   
 }
+
 
 }

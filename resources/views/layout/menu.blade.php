@@ -42,8 +42,8 @@
                                     </div>
                                 </div>
                             </div><!-- /.support-client -->
-                            <form class="form-search">
-                                <input type="text" class="input-text" name="q" id="search" placeholder="Search products...">
+                            <form action="search" method="Get" class="form-search">
+                                <input type="text" class="input-text" name="key" id="search" placeholder="Search products...">
                                 <div class="dropdown">
                                     <button type="button" class="btn" data-toggle="dropdown">All category <span class="fa fa-angle-down"></span></button>
                                     <ul class="dropdown-menu dropdown-menu-right">
@@ -58,8 +58,8 @@
                             <div class="mini-cart">
                                 <div class="top-cart-title">
                                     <a href="cart.html" class="dropdown-toggle" data-toggle="dropdown">
-                                          your cart
-                                        <span class="price">$45.00</span>
+                                          Mini
+                                        <span class="price">Cart</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                     
@@ -76,11 +76,14 @@
                                     </div>
                                     </div>
                                     @endforeach
+
+                                   @else
+                                    <div>No Cart</div>
+
                                       @endif
                                              
                                         </div><!-- /.cart-listing -->
                                         <div class="checkout-btn">
-                                            <a href="checkout" class="btn btn-default btn-md fwb">CHECK OUT</a>
                                        <button type="button" style="float: right;" onclick="addCartDetail()" class="btn btn-default btn-md fwb" data-toggle="modal" data-target="#myModal">DETAIL</button>
                                         </div>
 
@@ -133,6 +136,7 @@
         </table>
         </div>
         <div class="modal-footer">
+          <a href="checkout" class="btn btn-default btn-md fwb">CHECK OUT</a>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

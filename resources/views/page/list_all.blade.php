@@ -565,12 +565,7 @@
                                             <a href="detail/{{$pr->id}}" title="{{$pr->name}}" class="product-image">
                                                 <img src="admin_asset/catalogue/{{$pr->image}}" alt="Nunc facilisis" />
                                             </a>
-                                            <div class="box-hover">
-                                                <ul class="add-to-links">
-                                                    <li><a href="#" class="link-quickview">Quick View</a></li>
-                                                    <li><a href="#" class="link-cart">Add to Cart</a></li>
-                                                </ul>
-                                            </div>
+                                  
                                         </div>
                                         <div class="des-container">
                                             <h2 class="product-name"><a href="detail/{{$pr->id}}" title="{{$pr->name}}">{{$pr->name}}</a></h2>

@@ -9,9 +9,9 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
+	
     public function getLogin(){
     	return view('admin.login');
-
     }
     public function postLogin(Request $request){
 
@@ -32,6 +32,9 @@ class AdminController extends Controller
         return view('admin.user.add');
     }
 
+    /**
+    * @return a new add user
+    */
     public function postAdd(Request $request){
          $this->validate($request,[
              'txtName'=>'required|min:3|max:100',

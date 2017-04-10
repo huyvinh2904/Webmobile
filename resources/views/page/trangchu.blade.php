@@ -589,12 +589,14 @@
                                                 <a href="detail/{{$pr->id}}" title="Nunc facilisis" class="product-image">
                                                     <img src="admin_asset/catalogue/{{$pr->image}}" alt="{{$pr->name}}" />
                                                 </a>
+
                                                 <div class="box-hover">
                                                     <ul class="add-to-links">
                                                         <li><a href="#" class="link-quickview">Quick View</a></li>
                                                         <li><a href="#" class="link-cart">Add to Cart</a></li>
                                                     </ul>
                                                 </div>
+
                                             </div>
                                             <div class="des-container">
                                                 <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$pr->name}}</a></h2>
@@ -648,6 +650,7 @@
                                                 <a href="detail/{{$prNew->id}}" title="Nunc facilisis" class="product-image">
                                                     <img src="admin_asset/catalogue/{{$prNew->image}}" alt="{{$prNew->name}}" />
                                                 </a>
+
                                                 <div class="box-hover">
                                                     <ul class="add-to-links">
                                                         <li><a href="#" class="link-quickview">Quick View</a></li>
@@ -655,6 +658,7 @@
                                                         <li><a href="#" class="link-cart">Add to Cart</a></li>
                                                     </ul>
                                                 </div>
+
                                             </div>
                                             <div class="des-container">
                                                 <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$prNew->name}}</a></h2>
@@ -708,7 +712,7 @@
                                  @foreach($hand as $ha)
                                     <div class="products-grid">
                                         <div class="images-container">
-                                            <a class="product-image" title="Accumsan elit " href="#"><img alt="Accumsan elit " src="admin_asset/catalogue/{{$ha->image}}"></a>
+                                            <a href="detail/{{$ha->id}}" class="product-image" title="Accumsan elit " href="#"><img alt="Accumsan elit " src="admin_asset/catalogue/{{$ha->image}}"></a>
                                         </div>
                                         <div class="des-container">
                                             <h2 class="product-name"><a title="Accumsan elit " href="#">{{$ha->name}} </a></h2>
@@ -754,7 +758,7 @@
                                     <div class="products-grid">
                                     
                                         <div class="images-container">
-                                            <a class="product-image" title="Accumsan elit " href="#"><img alt="Accumsan elit " src="admin_asset/catalogue/{{$pcm->image}}"></a>
+                                            <a class="product-image" title="Accumsan elit " href="detail/{{$pcm->id}}"><img alt="Accumsan elit " src="admin_asset/catalogue/{{$pcm->image}}"></a>
                                         </div>
                                         <div class="des-container">
                                             <h2 class="product-name"><a title="Accumsan elit " href="#">{{$pcm->name}}</a></h2>
@@ -782,7 +786,6 @@
                                     @endforeach
 
                                     
-                                    
                                 </div><!-- /.product-list -->
                             </div>
                             <div class="col-sm-4">
@@ -792,7 +795,7 @@
                                 @foreach($saleoff as $so)
                                     <div class="products-grid">
                                         <div class="images-container">
-                                            <a class="product-image" title="Accumsan elit " href="#"><img alt="{{$so->name}} " src="admin_asset/catalogue/{{$so->image}}"></a>
+                                            <a class="product-image" title="Accumsan elit " href="detail/{{$so->id}}"><img alt="{{$so->name}} " src="admin_asset/catalogue/{{$so->image}}"></a>
                                         </div>
                                         <div class="des-container">
                                             <h2 class="product-name"><a title="Accumsan elit " href="#">{{$so->name}}</a></h2>

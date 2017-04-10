@@ -12,6 +12,10 @@ use App\OrderItem;
 use Session;
 class AjaxController extends Controller
 {
+     /**
+     * @return Category by ID of Item.
+     */
+
      public function getCategory($idMenu){
     	$Cate=Category::where('item',$idMenu)->get();
     	foreach ($Cate as $c) {
@@ -19,20 +23,25 @@ class AjaxController extends Controller
     	}
     }
 
-      /*
-      *  ADD Product to Category for Client when they add new product 
-      *  Return array product
+      /**
+      *  @return array Product 
       */
+
       public function addCategory($id,$qty){
 
+          // creat a product, add product into orderItem.
       		$product = Product::find($id);
       		$orderItem = new OrderItem();
       		$orderItem->product = $id;
       		$orderItem->price= $product->price_sale_off*$qty;
       		$orderItem->qty= $qty;
+
+          // save item into session name 'listProduct'
       		$name= "listProduct";
       		 if(session('listProduct')){
             $value = session('listProduct'); 
+
+                  // check product is existing in session
                  $check=0;
                  for($i=0 ;$i<count($value);$i++){
                      if($value[$i]->product== $id){
@@ -43,6 +52,7 @@ class AjaxController extends Controller
                         // break;
                      }
                  }
+                 // add new product into session
                  if($check==0){
                    array_push($value, $orderItem);
                     Session::put($name, $value);
@@ -53,6 +63,7 @@ class AjaxController extends Controller
                 Session::put($name, $value);
       		}
             
+            // echo result type text ajax
               foreach ($value as $vl){
               echo '<div class="media">';
               echo '<div class="media-left"><a href="#"><img src="admin_asset/catalogue/'.$vl->getProduct->image.'" alt="" class="img-responsive"></a></div>';
@@ -67,6 +78,9 @@ class AjaxController extends Controller
               }
       }
 
+        /**
+        *   @return arrayProduct in miniCart after update in DetailCart
+        */
       public function updateMiniCart(){
             $value = session('listProduct'); 
                 foreach ($value as $vl){
@@ -83,6 +97,9 @@ class AjaxController extends Controller
               }
       }
 
+      /**  
+      *  @return listProduct in CartDetail
+      */
       public function addCartDetail(){
             if(session('listProduct')){
               $total=0;
@@ -110,6 +127,9 @@ class AjaxController extends Controller
 
       }
 
+       /**
+       * update CartDetail when add product in session.
+       */
       public function updateCartDetail($number){
            if(session('listProduct')){
              $total=0;
@@ -135,7 +155,10 @@ class AjaxController extends Controller
           else echo "No Cart";
       }
 
-
+      /**
+      *  @return Session after update quanlity
+      *  sub quality 1. updata quality in Detail
+      */
       public function downQtyCart($number){
           $value = Session::get('listProduct');
           $value[$number]->qty= $value[$number]->qty-1;
@@ -162,12 +185,22 @@ class AjaxController extends Controller
                     '</tr>';
       }
 
+
+      /**
+      *  @return Session after update quanlity
+      *  plus quality 1. updata quality in Detail
+      */
+
       public function upQtyCart($number){
           $value = Session::get('listProduct');
+          // plus 1.
           $value[$number]->qty= $value[$number]->qty+1;
+
+          // quality limit is 5
           if($value[$number]->qty>=5){
             $value[$number]->qty=5;
           }
+          // update price after change quanlity
           $value[$number]->price = $value[$number]->getProduct->price_sale_off * $value[$number]->qty ;
           Session::put('listProduct', $value);
            $total=0;

@@ -39,6 +39,7 @@ class OrderController extends Controller
      public function getEdit($id){
             $order = Order::find($id);
             $status = Status::all();
+            // $name= "dong";
            return view('admin.order.edit',['order'=>$order, 'status'=> $status] );
      }
 

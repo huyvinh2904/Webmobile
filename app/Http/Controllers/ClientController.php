@@ -61,11 +61,6 @@ class ClientController extends Controller
           $client->code_active = null;
            $client->save();
         }
-
-        
-
-        
-
         return redirect('login')->with('thongbao','OK rồi vào đê anh zai!');
     }
 

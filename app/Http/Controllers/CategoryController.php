@@ -10,6 +10,8 @@ use App\Item;
 
 class CategoryController extends Controller
 {
+
+
      /**
      * Get view list of categories
      *
@@ -36,6 +38,7 @@ class CategoryController extends Controller
      * @param  $request $Cate
      */
      public function postAdd(Request $request){
+
         $this->validate($request,
             [
             'txtCateName'=>'required|min:3|max:15',
@@ -63,6 +66,7 @@ class CategoryController extends Controller
      *
      * @param  $id
      */
+
 
      public function getEdit($id){
        $Item = Item::all();
