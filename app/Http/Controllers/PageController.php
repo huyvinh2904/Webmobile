@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
 class PageController extends Controller
 {
     //
-    /*
+    /**
     *  call index View
     */
      function __construct(){
@@ -143,7 +143,7 @@ class PageController extends Controller
         return view('page.test_cookie');
      }
 
-    /*
+    /**
     * get Check out Category.
     */
      public function getCheckout(){
@@ -163,8 +163,10 @@ class PageController extends Controller
                      $orderItem->save();
               }
               $order->total = $total;
-             // Session::forget('listProduct');
-             return redirect('index');
+              $order->save();
+              $value = array();
+             Session::put('listProduct', $value);
+             return redirect('checkout-view');
         }
         else{
             return redirect('login');
@@ -180,16 +182,22 @@ class PageController extends Controller
         $getOrder = Order::where('client',$id)->get();
         if($getOrder){
             return view('page.myorder',['getOrder'=>$getOrder]);
-
         }
         else
         {
             return "Bạn chưa đặt hàng sản phẩm nào !";
         }
-
-
-        
      }
 
+     public function getSearch(Request $request){
+         $key = $request->key;
+         $product = Product::where('name','like',"%$key%")->paginate(12);
+         return view('page.search_result',['product'=>$product,'key'=>$key]);
+     }
     
+     public function getViewCheckout(){
+        return view('page.checkout');
+     }
+
+
 }

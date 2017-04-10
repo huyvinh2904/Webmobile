@@ -11,8 +11,8 @@ class OrderItemController extends Controller
 {
     //
 
-    /*
-    * return List order items by order_id
+    /**
+    * @return List order items by order_id
     */
     public function getList($id){
     	$orderItem= OrderItem::where('order_id',$id)->paginate(10);
@@ -20,7 +20,7 @@ class OrderItemController extends Controller
     	return view('admin.order_item.list',['orderItem'=>$orderItem,'order'=>$order]);
     }
 
-    /*
+    /**
     * delete a orderItem  by ID
     */
     public function getDelete($id,$order_id){

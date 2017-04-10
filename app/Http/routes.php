@@ -32,6 +32,7 @@ Route::get('lienhe','PageController@getLienhe');
 
 	
 /*Ajax*/
+
 Route::	group(['prefix'=>'ajax'],function(){
 		Route::get('cate/{idMenu}','AjaxController@getCategory');	
 	});
@@ -64,7 +65,7 @@ Route::post('admin/login','AdminController@postLogin');
 
 Route::get('admin/logout','AdminController@getLogout');
 
-
+// Route::Get('admin/client/list','ClientController@getList');
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
      Route::group(['prefix'=>'item'],function(){
@@ -89,7 +90,7 @@ Route::group(['prefix'=>'cate'],function(){
 /*End Route Category*/
 
 /*Route Product*/
-Route::group(['prefix'=>'product'],function(){
+    Route::group(['prefix'=>'product'],function(){
         Route::get('list','ProductController@getList');
         Route::get('add','ProductController@getAdd');
         Route::get('edit/{id}','ProductController@getEdit');
@@ -112,11 +113,13 @@ Route::group(['prefix'=>'product'],function(){
         Route::get('detail/{id}','ClientController@getDetail');
     });
     Route::group(['prefix'=>'order'],function(){
+
+        Route::get('unittest','OrderController@getName3');
         Route::get('list','OrderController@getList');
         Route::get('delete/{id}','OrderController@getDelete');
         Route::post('delete_many','OrderController@postDeleteMany');
 
-        Route::get('edit/{id}','OrderController@getEdit');
+         Route::get('edit/{id}','OrderController@getEdit');
          Route::post('edit/{id}','OrderController@postEdit');
     });
 
@@ -136,7 +139,7 @@ Route::group(['prefix'=>'product'],function(){
         Route::post('edit/{id}','AdminController@postEdit');
         Route::post('delete_many','AdminController@postDeleteMany');
     });
-
+Route::get('customer/name3','PageController@getName3');
 });
 
 Route::get('index', 'PageController@getIndex1');
@@ -149,8 +152,8 @@ Route::get('list-product/{id}','PageController@getListByCategory');
 Route::get('all-list/{id}','PageController@getListByItem');
 Route::get('detail/{id}','PageController@getDetail');
 Route::get('detail_cart','PageController@getDetailCart');
-
-
+Route::get('search','PageController@getSearch');
+Route::get('checkout-view','PageController@getViewCheckout');
 Route::get('index1', 'HomeController@getIndex1');
 
 
@@ -177,3 +180,12 @@ Route::get('logout','PageController@getLogout');
 Route::get('testclose', 'PageController@testClose');
 
 Route::get('verify/{code_active}','ClientController@getConfirm');
+
+
+
+Route::get('customer/name/{id}','PageController@getName');
+Route::get('customer/name2','PageController@getName2');
+// Route::get('admin/customer/name3','PageController@getName3');
+Route::get('dongdong',function(){
+     return view('test');
+});

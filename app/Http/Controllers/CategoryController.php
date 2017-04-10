@@ -20,6 +20,10 @@ class CategoryController extends Controller
     	$Item = Item::all();
     	return view('admin.category.add',['Item' => $Item]);
     }
+
+    /**
+    * @return new a add category
+    */
     public function postAdd(Request $request){
         $this->validate($request,
             [
@@ -44,12 +48,14 @@ class CategoryController extends Controller
 
     }
 
-public function getEdit($id){
+    public function getEdit($id){
 	$Item = Item::all();
 	$Cate = Category::find($id);
     return view('admin.category.edit',['CateEdit'=>$Cate,'Item'=>$Item]);
     	
     }
+
+    
     public function postEdit(Request $request,$id){
         
          $this->validate($request,

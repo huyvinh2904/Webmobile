@@ -1,96 +1,25 @@
+  
 @extends('layout.index')
 @section('content')
-     @include('layout.menu')
-  <div class="main">
+        <div class="main">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 col-md-offset-3">
-                        <div class="flexslider ma-nivoslider">
-                            <div class="ma-loading"></div>
-                            <div id="ma-inivoslider-banner7" class="slides">
-                                <img src="images/slider/slide-01.jpg" class="dn" alt="" title="#banner7-caption1"  />                           
-                                <img src="images/slider/slide-02.jpg" class="dn" alt="" title="#banner7-caption2"  />
-                            </div>
-                            <div id="banner7-caption1" class="banner7-caption nivo-html-caption nivo-caption">
-                                <div class="timethai"></div>
-                                <div class="banner7-content slider-1">
-                                    <div class="title-container">
-                                        <h1 class="title1">headphones az12</h1>
-                                        <h2 class="title2" >Typi non habent claritatem insitam; est usus legentis</h2>                                          
-                                    </div>
-                                    <div class="banner7-des">
-                                        <div class="des">
-                                            <h1>sale up to!</h1>
-                                            <h2>30% off</h2>
-                                            <div class="check-box">
-                                                <ul class="list-unstyled">
-                                                    <li>With all products in shop</li>
-                                                    <li>All combos $69.96</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>                                                                                              
-                                    <img class="img1" src="images/slider/img-04.png" alt="" />                                                                              
-                                </div>
-                            </div>                      
-                            <div id="banner7-caption2" class="banner7-caption nivo-html-caption nivo-caption">
-                                <div class="timethai"></div>
-                                <div class="banner7-content slider-2">
-                                    <div class="title-container">
-                                        <h1 class="title1">Samsung s5</h1>
-                                        <h2 class="title2" >Typi non habent claritatem insitam; est usus legentis</h2>                                          
-                                    </div>
-                                    <div class="banner7-des">
-                                        <div class="des">
-                                            <h1>sale up to!</h1>
-                                            <h2>50% off</h2>
-                                        </div>
-                                    </div>                                                                                              
-                                    <img class="img1" src="images/slider/img-05.png" alt="" />                                                                                  
-                                </div>
-                            </div>
-                        </div><!-- /.flexslider -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="banner-left"><a href="#"><img src="images/ads/ads-01.jpg" alt=""></a>
-                            <div class="banner-content">
-                                <h1>sale up to</h1>
-                                <h2>20% off</h2>
-                                <p>on selected products</p>
-                                <a href="#">buy now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="banner banner-double"><a href="#"><img alt="" src="images/ads/ads-02.jpg"></a></div>
-                        <div class="banner banner-double"><a href="#"><img alt="" src="images/ads/ads-03.jpg"></a></div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="banner"><a href="#"><img alt="" src="images/ads/ads-04.jpg"></a></div>
-                    </div>
-                </div><!-- /advertisement -->
-                <div class="row">
-                    <div class="col-sm-3 col-left">
+              @include('layout.menu')
+                                  <div class="col-sm-3 col-left">
                         <div class="timely">
                             <div class="title-group"><h2>hot deals</h2></div>
                             <div id="timely-owl" class="owl-container">
                                 <div class="owl">
-                                 <?php $products = DB::table('products')->where('ishot',8)->limit(5)->get(); ?>
-                            @foreach($products as $pr2)
-
                                     <div class='timer-item item'>
                                         <div class="item-inner">
                                             <div class="images-container">
-                                                <a href="#" title="Fusce aliquam" class="product-image"><img src="admin_asset/catalogue/{{$pr2->image}}" alt="{{$pr2->name}}" /></a>
+                                                <a href="#" title="Fusce aliquam" class="product-image"><img src="images/products/1.jpg" alt="Fusce aliquam" /></a>
                                                 <div class="box-timer">
                                                     <div class="countbox_1 timer-grid"></div>
                                                 </div>
                                             </div>
                                             <div class="content-box">
-
-                                                <h2 class="product-name"><a href="" title="Fusce aliquam">Fusce aliquam</a></h2>
+                                                <h2 class="product-name"><a href="#" title="Fusce aliquam">Fusce aliquam</a></h2>
                                                 <div class="price-box">
                                                     <p class="special-price">
                                                         <span class="price-label">Special Price</span>
@@ -119,42 +48,53 @@
                                                 </div>
                                             </div>
                                             <div class="content-box">
-                                                <h2 class="
-
-
-
-
-
-
-
-                                                product-name"><a href="#" title="Quisque in arcu">Quisque in arcu</a></h2>
-
-                                                <h2 class="product-name"><a href="#" title="Fusce aliquam">{{$pr2->name}}</a></h2>
+                                                <h2 class="product-name"><a href="#" title="Quisque in arcu">Quisque in arcu</a></h2>
                                                 <div class="price-box">
                                                     <p class="special-price">
                                                         <span class="price-label">Special Price</span>
-                                                        <span class="price">@if($pr2->price_sale_off !=0)
-                                                            {{$pr2->price_sale_off}}
-                                                            @else
-                                                            {{$pr2->price}}
-                                                            @endif
-                                                             USD</span>
+                                                        <span class="price">$699.00</span>
                                                     </p>
                                                     <p class="old-price">
                                                         <span class="price-label">Regular Price: </span>
-                                                        <span class="price">{{$pr2->price}}</span>
+                                                        <span class="price">$800.00</span>
                                                     </p>
                                                 </div>
                                                 <div class="ratings">
                                                     <div class="rating-box">
                                                         <div class="rating" style="width:67%"></div>
                                                     </div>
-                                                    
+                                                    <span class="amount"><a href="#">1 Review(s)</a></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                    <div class='timer-item item'>
+                                        <div class="item-inner">
+                                            <div class="images-container">
+                                                <a href="#" title="pleasure rationally" class="product-image"><img src="images/products/20.jpg" alt="pleasure rationally" /></a>
+                                                <div class="box-timer">
+                                                    <div class="countbox_3 timer-grid"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content-box">
+                                                <h2 class="product-name"><a href="#" title="pleasure rationally">pleasure rationally</a></h2>
+                                                <div class="price-box">
+                                                    <p class="special-price">
+                                                        <span class="price-label">Special Price</span>
+                                                        <span class="price">$222.00</span>
+                                                    </p>
+                                                    <p class="old-price"><span class="price-label">Regular Price: </span><span class="price">$333.00</span>
+                                                    </p>
+                                                </div>
+                                                <div class="ratings">
+                                                    <div class="rating-box">
+                                                        <div class="rating" style="width:67%"></div>
+                                                    </div>
+                                                    <span class="amount"><a href="#">1 Review(s)</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div><!-- /.timely -->
@@ -573,251 +513,124 @@
                             </div>
                         </div><!-- /.block - Latest News -->
                     </div><!-- /.col-left -->
+
                     <div class="col-sm-9 col-right">
-                        <div class="featuredproductslider-container"> 
-                            <div class="title-group1"><h2>SẢN PHẨM HOT</h2></div>
-                            <div id="featured-products" class="owl-container">
-                                <div class="owl">
-                            <?php $products = DB::table('products')->where('ishot',8)->get(); ?>
-                            @foreach($products as $pr)
-                                    <div class='productslider-item item'>
-                                        <div class="item-inner">
-                                            <div class="images-container">
-                                                <div class="product_icon">
-                                                    <div class='new-icon'><span>new</span></div>
-                                                </div>
-                                                <a href="detail/{{$pr->id}}" title="Nunc facilisis" class="product-image">
-                                                    <img src="admin_asset/catalogue/{{$pr->image}}" alt="{{$pr->name}}" />
-                                                </a>
-                                            
-                                            </div>
-                                            <div class="des-container">
-                                                <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$pr->name}}</a></h2>
-                                                <div class="price-box">
-                                                    <p class="special-price">
-                                                        <span class="price-label">Special Price</span>
-                                                        <span class="price">
-                                                            @if($pr->price_sale_off !=0)
-                                                            {{$pr->price_sale_off}}
-                                                            @else
-                                                            {{$pr->price}}
-                                                            @endif
-                                                             USD
-                                                        </span>
-                                                    </p>
-                                                    <p class="old-price">
-                                                        <span class="price-label">Regular Price: </span>
-                                                        <span class="price">{{$pr->price}} USD </span>
-                                                    </p>
-                                                </div>
-                                                <div class="ratings">
-                                                    <div class="rating-box">
-                                                        <div class="rating" style="width:67%"></div>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                    
-                                </div>
-                            </div>
-                        </div><!-- /.featuredproductslider-container -->
                         <div class="banner">
-                            <a href="#"><img alt="" src="images/ads/ads-05.jpg"></a>
+                            <a href="#"><img alt="" src="images/ads/ads-17.jpg"></a>
                         </div>
-                        <div class="newproductslider-container"> 
-                            <div class="title-group1"><h2>SẢN PHẨM MỚI</h2></div>
-                            <div id="new-products" class="owl-container">
-                                <div class="owl">
-                                 <?php $productNew = DB::table('products')->where('ishot',2)->limit(6)->get(); ?>
-                                 @foreach($productNew as $prNew)
-                                    <div class='productslider-item item'>
-                                        <div class="item-inner">
-                                            <div class="images-container">
-                                                <div class="product_icon">
-                                                    <div class='new-icon'><span>new</span></div>
-                                                    <div class="sale-icon"><span>sale</span></div>
-                                                </div>
-                                                <a href="detail/{{$prNew->id}}" title="Nunc facilisis" class="product-image">
-                                                    <img src="admin_asset/catalogue/{{$prNew->image}}" alt="{{$prNew->name}}" />
-                                                </a>
-
-                                            </div>
-                                            <div class="des-container">
-                                                <h2 class="product-name"><a href="#" title="Nunc facilisis">{{$prNew->name}}</a></h2>
-                                                <div class="price-box">
-                                                    <p class="special-price">
-                                                        <span class="price-label">Special Price</span>
-                                                        <span class="price">
-                                                        @if($prNew->price_sale_off !=0)
-                                                            {{$prNew->price_sale_off}}
-                                                            @else
-                                                            {{$prNew->price}}
-                                                            @endif
-                                                             USD</span>
-                                                    </p>
-                                                    <p class="old-price">
-                                                        <span class="price-label">Regular Price: </span>
-                                                        <span class="price">{{$prNew->price}} USD</span>
-                                                    </p>
-                                                </div>
-                                                <div class="ratings">
-                                                    <div class="rating-box">
-                                                        <div class="rating" style="width:67%"></div>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="page-title">
+                            <h1> Search Result: {{$key}}</h1>
+                        </div>
+                        <div class="toolbar">
+                            <div class="sorter">
+                                <p class="view-mode">
+                                    <label>View as:</label>
+                                    <strong class="grid" title="Grid"></strong>&nbsp;
+                                    <a class="list" title="List" href="#">List</a>&nbsp;
+                                </p>
+                            </div><!-- /.sorter -->
+                            <div class="pager">
+                                <div class="sort-by hidden-xs">
+                                    <label>Sort By:</label>
+                                    <select class="form-control input-sm">
+                                        <option selected="selected">Position</option>
+                                        <option>Name</option>
+                                        <option>Price</option>
+                                    </select>
+                                    <a title="Set Descending Direction" href="#"><span class="fa fa-sort-amount-desc"></span></a>
+                                </div>
+                                <div class="limiter hidden-xs">
+                                    <label>Show:</label>
+                                    <div class="limiter-inner">
+                                        <select class="form-control input-sm">
+                                            <option>9</option>
+                                            <option selected="selected">12</option>
+                                            <option>24</option>
+                                            <option>36</option>
+                                        </select> 
                                     </div>
-                                    @endforeach
-                                    
                                 </div>
-                            </div>
-                        </div><!-- /.newproductslider-container -->
-                        <div class="row">
-                            <div class="col-smc-7">
-                                <div class="banner">
-                                    <a href="#"><img alt="" src="images/ads/ads-06.jpg"></a>
-                                </div>
-                            </div>
-                            <div class="col-smc-5">
-                                <div class="banner">
-                                    <a href="#"><img alt="" src="images/ads/ads-07.jpg"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="title-group"><h2>Phụ kiện</h2></div>
-                                <div class="product-list">
-                                <?php $hand = DB::table('products')->where('category','>',16)->limit(3)->get()  ?>
-                                 @foreach($hand as $ha)
-                                    <div class="products-grid">
+                            </div><!--- /.pager -->
+                        </div><!-- /.toolbar -->
+                        <div class="row products">
+
+                        @foreach($product as $pr)
+                            <div class="col-md-3 col-sm-6" style="height: 350px;">
+                                <div class='productslider-item item'>
+                                    <div class="item-inner">
                                         <div class="images-container">
-                                            <a href="detail/{{$ha->id}}" class="product-image" title="Accumsan elit " href="#"><img alt="Accumsan elit " src="admin_asset/catalogue/{{$ha->image}}"></a>
+
+                                            <div class="product_icon">
+                                                <div class='new-icon'><span>new</span></div>
+                                            </div>
+                                            <a href="detail/{{$pr->id}}" title="{{$pr->name}}" class="product-image">
+                                                <img src="admin_asset/catalogue/{{$pr->image}}" alt="Nunc facilisis" />
+                                            </a>
+                                            <div class="box-hover">
+                                                <ul class="add-to-links">
+                                                    <li><a href="#" class="link-quickview">Quick View</a></li>
+                                                    <li><a href="#" class="link-cart">Add to Cart</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="des-container">
-                                            <h2 class="product-name"><a title="Accumsan elit " href="#">{{$ha->name}} </a></h2>
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div style="width:67%" class="rating"></div>
-                                                </div>
-                                               
-                                            </div>
+                                            <h2 class="product-name"><a href="detail/{{$pr->id}}" title="{{$pr->name}}">{{$pr->name}}</a></h2>
                                             <div class="price-box">
                                                 <p class="special-price">
-                                                    <span class="price">
-                                                    @if($ha->price_sale_off !=0)
-                                                            {{$ha->price_sale_off}}
-                                                            @else
-                                                            {{$ha->price}}
-                                                            @endif
-                                                             USD</span>
+                                                    <span class="price">{{$pr->price_sale_off}}</span>
                                                 </p>
                                                 <p class="old-price">
-                                                    <span class="price">{{$ha->price}}</span>
+                                                    <span class="price">{{$pr->price}}</span>
                                                 </p>
+                                            </div>
+                                            <div class="ratings">
+                                                <div class="rating-box">
+                                                    <div class="rating" style="width:67%"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
-                                    
-                                </div><!-- /.product-list -->
+                                </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="title-group"><h2>Bán chạy</h2></div>
-                                <div class="product-list">
-                                <?php
-                                $pricemax = DB::table('orders_items')->limit(3)
-                                ->where('qty','=','5')
-                        ->join('products','products.id','=','orders_items.product')
-                        ->select('products.name as name','products.price_sale_off as price_sale_off','products.price as price','products.id as id','products.image as image')
-                        ->get();
-                        ?>
-                                   
-                              @foreach($pricemax as $pcm)
+                        
+                            @endforeach
                            
-                                    <div class="products-grid">
-                                    
-                                        <div class="images-container">
-                                            <a class="product-image" title="Accumsan elit " href="detail/{{$pcm->id}}"><img alt="Accumsan elit " src="admin_asset/catalogue/{{$pcm->image}}"></a>
-                                        </div>
-                                        <div class="des-container">
-                                            <h2 class="product-name"><a title="Accumsan elit " href="#">{{$pcm->name}}</a></h2>
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div style="width:67%" class="rating"></div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="price-box">
-                                                <p class="special-price">
-                                                    <span class="price">@if($pcm->price_sale_off !=0)
-                                                            {{$pcm->price_sale_off}}
-                                                            @else
-                                                            {{$pcm->price}}
-                                                            @endif
-                                                             USD</span>
-                                                </p>
-                                                <p class="old-price">
-                                                    <span class="price">{{$pcm->price}}</span>
-                                                </p>
-                                            </div>
-                                        </div>
+                        </div><!-- /.product -->
+                        {{$product->links()}}
+                        <div class="toolbar">
+                            <div class="sorter">
+                                <p class="view-mode">
+                                    <label>View as:</label>
+                                    <strong class="grid" title="Grid">Grid</strong>&nbsp;
+                                    <a class="list" title="List" href="#">List</a>&nbsp;
+                                </p>
+                            </div><!-- /.sorter -->
+                            <div class="pager">
+                                <div class="sort-by hidden-xs">
+                                    <label>Sort By:</label>
+                                    <select class="form-control input-sm">
+                                        <option selected="selected">Position</option>
+                                        <option>Name</option>
+                                        <option>Price</option>
+                                    </select>
+                                    <a title="Set Descending Direction" href="#"><span class="fa fa-sort-amount-desc"></span></a>
+                                </div>
+                                <div class="limiter hidden-xs">
+                                    <label>Show:</label>
+                                    <div class="limiter-inner">
+                                        <select class="form-control input-sm">
+                                            <option>9</option>
+                                            <option selected="selected">12</option>
+                                            <option>24</option>
+                                            <option>36</option>
+                                        </select> 
                                     </div>
-                                    @endforeach
-
-                                    
-                                </div><!-- /.product-list -->
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="title-group"><h2>Hot sale</h2></div>
-                                <div class="product-list">
-                                <?php $saleoff = DB::table('products')->where('ishot',2)->limit(3)->get(); ?>
-                                @foreach($saleoff as $so)
-                                    <div class="products-grid">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Accumsan elit " href="detail/{{$so->id}}"><img alt="{{$so->name}} " src="admin_asset/catalogue/{{$so->image}}"></a>
-                                        </div>
-                                        <div class="des-container">
-                                            <h2 class="product-name"><a title="Accumsan elit " href="#">{{$so->name}}</a></h2>
-                                            <div class="ratings">
-                                                <div class="rating-box">
-                                                    <div style="width:67%" class="rating"></div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="price-box">
-                                                <p class="special-price">
-                                                    <span class="price">
-                                                    @if($so->price_sale_off !=0)
-                                                            {{$so->price_sale_off}}
-                                                            @else
-                                                            {{$so->price}}
-                                                            @endif
-                                                             USD</span>
-                                                </p>
-                                                <p class="old-price">
-                                                    <span class="price">{{$so->price}}</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                    
-                                </div><!-- /.product-list -->
-                            </div>
-                        </div>
+                                </div>
+                            </div><!-- /.pager -->
+                        </div><!-- /.toolbar -->
                     </div><!-- /.col-right -->
                 </div>
             </div>
         </div><!-- /.main -->
 
-
-
-
-
-@endsection
+        @endsection
