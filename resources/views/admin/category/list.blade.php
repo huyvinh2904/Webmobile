@@ -67,7 +67,7 @@
                     </tr>
                     @endforeach
                     </tbody>
-                </table>
+                </table>{{$Cate->links()}}
                 
             </div>
             <!-- /.row -->
